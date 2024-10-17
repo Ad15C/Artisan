@@ -1,0 +1,36 @@
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+header {
+    color: #f1f8fc; 
+    padding: 10px; 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; 
+}
+
+main {
+    flex: 1; 
+    padding-top: 60px; 
+}
+
+footer {
+    background-color: #00497c; 
+    color: #f1f8fc; 
+    padding: 10px; 
+    position: fixed; 
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
