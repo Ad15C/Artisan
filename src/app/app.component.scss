@@ -2,6 +2,9 @@
 html, body {
     height: 100%;
     margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .container {
@@ -11,26 +14,36 @@ html, body {
 }
 
 header {
-    color: #f1f8fc; 
+    background-color: #f1f8fc; 
     padding: 10px; 
     position: fixed; 
     top: 0;
     left: 0;
     right: 0;
+    width: 100%;
     z-index: 1000; 
 }
 
 main {
     flex: 1; 
-    padding-top: 60px; 
+    padding-top: 80px; 
+    padding-bottom: 60px;
+    overflow: auto;
 }
 
 footer {
-    background-color: #00497c; 
+    padding: 20px; 
+    background-color: #0074c7; 
     color: #f1f8fc; 
-    padding: 10px; 
-    position: fixed; 
-    bottom: 0;
+    width: 100%;
+    box-sizing: border-box; 
+    position: relative; 
+    z-index: 1000; 
+    margin: 0; 
     left: 0;
     right: 0;
+    bottom: 0;
+    font-size: small;
+    font-weight: lighter;
+
 }

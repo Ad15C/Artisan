@@ -1,0 +1,57 @@
+.homepage {
+    margin-top: 20px;
+}
+
+.steps {
+    background-color: #f1f8fc;
+    padding: 20px;
+    color: #00497c;
+
+    h2 {
+        text-align: center;
+        color: #0047c7;
+        margin-bottom: 20px;
+    }
+}
+
+.steps-content {
+    display: flex;
+    align-items: flex-start;
+
+    @media (max-width: 768px) {
+        flex-direction: column; /* Empile les éléments sur les petits écrans */
+    }
+}
+
+.steps-list {
+    flex: 1;
+    margin-right: 20px; /* Espace entre la liste et l'image */
+}
+
+.step-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+
+    a {
+        margin-right: 10px;
+    }
+        img {
+            margin-right: 10px;
+        }
+}
+
+.steps-image {
+    max-width: 20%; 
+    height: auto; /* Conserve le ratio de l'image */
+}
+
+/* Alignement des étapes en colonne */
+.steps-list {
+    display: flex;
+    flex-direction: column; 
+}
+
+.steps-list .step-item {
+    margin-bottom: 15px; 
+}

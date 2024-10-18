@@ -1,17 +1,17 @@
 .footer {
-    padding: 20px; 
-    font-size: small;
-    font-weight: lighter;
-    margin: 0;
-    padding-top: 0;
+    width: 100%;
+    position: relative; 
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
 
-    .footer-row {
+   .footer-row {
+        width: 100%;
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-evenly; 
+        justify-content: center; 
         align-items: center; 
-        margin-bottom: 5px;
-        margin-top: 5px;
+        margin: 0;
 
         .footer-column {
             flex: 1; 
@@ -22,6 +22,7 @@
             .content {
                 display: flex; 
                 align-items: center; 
+
                 img {
                     margin-right: 10px; 
                     width: 24px; 
@@ -34,12 +35,17 @@
             color: #f1f8fc;
             text-decoration: none;
             text-align:center;
-            padding-top: 5px;
-            padding-bottom: 5px;
+            padding: 5px;
         }
 
-        .networks {
-            padding-top: 10px;
+        .footer-networks {
+            display: flex;
+            justify-content: center;
+            padding-top: 10px; 
+            
+            a{
+                margin: 0 10px;
+            }
         }
     }
 
