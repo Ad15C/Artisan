@@ -1,16 +1,15 @@
 .footer {
-    width: 100%;
-    position: relative; 
+    width: 100%; 
     margin: 0; 
-    padding: 0;
-    box-sizing: border-box;
+    padding: 20px; 
+    box-sizing: border-box; 
+    position: relative; 
 
    .footer-row {
         width: 100%;
         display: flex;
         flex-wrap: wrap;
-        justify-content: center; 
-        align-items: center; 
+        justify-content: center;  
         margin: 0;
 
         .footer-column {
@@ -18,6 +17,7 @@
             min-width: 250px;
             padding: 10px;
             text-align: left;
+        
 
             .content {
                 display: flex; 
