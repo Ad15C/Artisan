@@ -1,58 +1,74 @@
 .header {
-    background-color: #f1f8fc; 
     padding: 10px 20px; 
     display: flex; 
     align-items: center; 
-
+    justify-content: space-between;
+ 
+    
     .container {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-between; 
         width: 100%;
-        padding: 10px 0;
     }
 
     .logo {
-        margin-right: 0;
-        flex: 0; 
+        display: flex;
+        align-items: center;
+        margin-right: auto;
+    }
 
-        .logo-img {
-            max-width: 250px; 
-            height: auto; 
+
+    .logo-desktop { 
+        max-height: 150px;
+    }
+
+    .logo-mobile {
+        display: none; // Cacher le logo mobile par défaut
+        max-height: 100%; // Assurez-vous qu'il s'adapte à la hauteur du header
+    }
+
+    @media (max-width: 768px) {
+        .logo-desktop {
+            display: none; // Cacher le logo desktop en mode mobile
+        }
+
+        .logo-mobile {
+            display: block; // Afficher le logo mobile en mode mobile
         }
     }
 
     .navbar {
         display: flex;
-        justify-content: center;
-        margin-right: 25px;
+        align-items: center;
         background-color: #00497c;
-
+        flex-basis: auto; 
+        
         .navbar-toggler {
             background-color: #00497c; // Couleur du bouton hamburger
         }
 
         .navbar-collapse {
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;;
             flex-grow: 1; 
         }
 
         .navbar-nav {
             display: flex; 
             margin: 0; 
-            padding: 15px; 
+            padding: 10px; 
 
             .nav-item {
-                margin: 0 25px; 
+                margin: 0 25px; // Espace entre les sections
                 list-style: none; 
-
-                .nav-link {
-                    color: #f1f8fc; 
-                    text-decoration: none; 
-                }
             }
         }
+    }
+
+    .link {
+        color: #f1f8fc;
+        text-decoration: none; 
     }
 
     form {

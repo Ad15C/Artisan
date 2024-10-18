@@ -1,29 +1,33 @@
 <header class="header">
     <div class="container d-flex align-items-center justify-content-between">
-        <a class="logo" href="#">
-            <img src="/src/assets/Logo/Logo.png" alt="Logo Trouve Ton Artisan" class="logo-img">
+        <a class="logo" routerLink="/">
+            <img *ngIf="!isMobileOrTablet" src="assets/Logo/Logo.png" alt="Logo Trouver ton artisan" class="logo-desktop">
+            <img *ngIf="isMobileOrTablet" src="assets/favicons/favicon-32.png" alt="Logo Trouver ton artisan" class="logo-mobile">
         </a>
         <nav class="navbar navbar-expand-lg">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              </div>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Bâtiment</a>
+                        <a class="link" routerLink="/batiment">Bâtiment</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
+                        <a class="link" routerLink="/services">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Fabrication</a>
+                        <a class="link" routerLink="/fabrication">Fabrication</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Alimentation</a>
+                        <a class="link" routerLink="/alimentation">Alimentation</a>
                     </li>
                 </ul>
             </div>
         </nav>
+        
         <form class="d-flex" role="search">
             <input class="form-control" type="search" placeholder="Search" aria-label="Search">
         </form>
