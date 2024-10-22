@@ -14,7 +14,7 @@
     }
 
     .logo-desktop { 
-        max-height: 150px;
+        max-height: 180px;
     }
 
     .logo-mobile {
@@ -39,7 +39,7 @@
         flex-grow: 1;
         
         .navbar-toggler {
-            background-color: #00497c; // Couleur du bouton hamburger
+            background-color: #00497c; /* Couleur du bouton hamburger */
         }
 
         .navbar-collapse {
@@ -54,7 +54,7 @@
             padding: 10px; 
 
             .nav-item {
-                margin: 0 25px; // Espace entre les sections
+                margin: 0 25px; /* Espace entre les sections */
                 list-style: none; 
             }
         }
