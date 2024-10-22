@@ -1,64 +1,74 @@
 .footer {
     width: 100%; 
     margin: 0; 
-    padding: 20px; 
+    padding: 20px ; 
     box-sizing: border-box; 
-    position: relative; 
+    position: relative;
+     
 
-   .footer-row {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;  
+    .container-fluid {
+        padding: 0;
+
+        .border-bottom {
+            border-bottom: 1px solid #f1f8fc;
+        }
+    }
+
+ .content {
+    display: flex;
+    align-items: center;
+    padding-bottom: 15px ;
+
+    a {
+        margin-right: 20px;
+    }
+ }
+
+ .adresse, .phone, .horaires {
+    p {
         margin: 0;
+    }
+ }
+ .footer-link {
+    color: #f1f8fc;
+    margin: 15px;
+    text-decoration: none;
 
-        .footer-column {
-            flex: 1; 
-            min-width: 250px;
-            padding: 10px;
-            text-align: left;
-        
+    &:hover {
+        text-decoration: underline;
+    }
+ }
+}
 
-            .content {
-                display: flex; 
-                align-items: center; 
-
-                img {
-                    margin-right: 10px; 
-                    width: 24px; 
-                    height: auto; 
-                }
-            }
-        }
-
-        .footer-link {
-            color: #f1f8fc;
-            text-decoration: none;
-            text-align:center;
-            padding: 5px;
-        }
-
-        .footer-networks {
-            display: flex;
-            justify-content: center;
-            padding-top: 10px; 
-            
-            a{
-                margin: 0 10px;
-            }
+.networks {
+    display: flex;
+    justify-content: center;
+    a {
+        margin: 5px; 
+        img {
+            width: 20px; 
+            height: auto;
         }
     }
+}
 
-    .footer-separator {
-        border: none; 
-        border-top: 1px solid #f1f8fc; 
-        margin: 10px 0; 
+@media (max-width: 768px) {
+    .footer {
+        padding: 10px; // Réduit le padding sur mobile
     }
 
-    @media (max-width: 768px) {
-        .footer-row {
-            flex-direction: column; 
-            align-items: center; 
-        }
+    .content {
+        flex-direction: column; // Empile le contenu verticalement
+        align-items: flex-start; // Aligne à gauche
+        padding-bottom: 10px; // Ajuste l'espace en bas
+    }
+
+    .footer-link {
+        margin: 5px 0; // Réduit les marges pour les petits écrans
+        text-align: center; // Centre les liens
+    }
+
+    .networks {
+        justify-content: center; // Centre les icônes sur mobile
     }
 }
