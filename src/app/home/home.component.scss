@@ -1,6 +1,14 @@
 .homepage {
     margin-top: 20px;
+    width: 100%;
+    background-color: white;
 }
+ main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+ }
 
 main {
     margin-top: 180px;
@@ -10,7 +18,11 @@ main {
 .steps {
     background-color: #f1f8fc;
     padding: 20px;
+    padding-top: 60px;
     color: #00497c;
+    width: 80%;
+    margin: 40px auto;
+ 
 
     h2 {
         text-align: center;
@@ -18,11 +30,17 @@ main {
         margin-bottom: 20px;
         padding: 5px;
     }
+
+    @media (max-width: 768px) {
+        padding-top: 80px; // Ajuste pour compenser la hauteur du header sur mobile
+        width: 100%; // Prend toute la largeur sur mobile    
+    }
 }
 
 .steps-content {
     display: flex;
     align-items: flex-start;
+    width: 100%;
 
     @media (max-width: 768px) {
         flex-direction: column; /* Empile les éléments sur les petits écrans */
@@ -32,6 +50,14 @@ main {
 .steps-list {
     flex: 1;
     margin-right: 20px; /* Espace entre la liste et l'image */
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 768px) {
+        margin-right: 0; // Supprime l'espace sur mobile
+        margin-bottom: 20px; // Ajoute de l'espace en bas pour séparer l'image
+    }
+
 }
 
 .step-item {
@@ -50,14 +76,18 @@ main {
 .steps-image {
     max-width: 20%; 
     height: auto; /* Conserve le ratio de l'image */
+
+    @media (max-width: 768px) {
+        max-width: 100%; // Prend toute la largeur sur mobile
+    }
 }
 
-/* Alignement des étapes en colonne */
-.steps-list {
-    display: flex;
-    flex-direction: column; 
-}
+.top-artisans {
+    padding: 20px;
+    text-align: center; // Centre le texte
+    width: 80px;
 
-.steps-list .step-item {
-    margin-bottom: 15px; 
+    h2 {
+        color: #0047c7;
+    }
 }
