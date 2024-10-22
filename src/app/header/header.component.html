@@ -6,11 +6,18 @@
         </a>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button 
+                    *ngIf="isMobileOrTablet" 
+                    class="navbar-toggler" 
+                    type="button" 
+                    (click)="toggleNavbar()" 
+                    aria-controls="navbarNav" 
+                    aria-expanded="isNavbarOpen" 
+                    aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
               </div>
-            <div class="collapse navbar-collapse" id="navbarNav">
+              <div [ngClass]="{'collapse': !isNavbarOpen, 'navbar-collapse': true}" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="link" routerLink="/batiment">Bâtiment</a>
@@ -29,7 +36,7 @@
         </nav>
         
         <form class="d-flex" role="search">
-            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control" type="search" placeholder="Recherchez" aria-label="Search">
         </form>
     </div>
 </header>

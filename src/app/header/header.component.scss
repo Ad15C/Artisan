@@ -1,9 +1,5 @@
 .header {
     padding: 10px 20px; 
-    display: flex; 
-    align-items: center; 
-    justify-content: space-between;
- 
     
     .container {
         display: flex;
@@ -15,9 +11,7 @@
     .logo {
         display: flex;
         align-items: center;
-        margin-right: auto;
     }
-
 
     .logo-desktop { 
         max-height: 150px;
@@ -42,7 +36,7 @@
         display: flex;
         align-items: center;
         background-color: #00497c;
-        flex-basis: auto; 
+        flex-grow: 1;
         
         .navbar-toggler {
             background-color: #00497c; // Couleur du bouton hamburger
@@ -73,5 +67,10 @@
 
     form {
         margin-left: 30px; 
+       
+            input {
+                width: 100%; // S'adapte à l'espace disponible
+                max-width: 200px; // Limite la largeur de la barre de recherche
+            }
     }
 }
