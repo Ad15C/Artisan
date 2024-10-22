@@ -2,16 +2,15 @@
     width: 100%; 
     margin: 0; 
     padding: 20px ; 
-    box-sizing: border-box; 
-    position: relative;
-     
+    box-sizing: border-box;  
+    position: relative; /* Permet au footer de rester dans le flux normal du document */
+    margin: 0; /* Enlève les marges */
+    padding: 20px; /* Padding pour le contenu */
+    font-size: small; 
+    font-weight: normal;
 
     .container-fluid {
         padding: 0;
-
-        .border-bottom {
-            border-bottom: 1px solid #f1f8fc;
-        }
     }
 
  .content {
@@ -29,22 +28,30 @@
         margin: 0;
     }
  }
+
  .footer-link {
     color: #f1f8fc;
     margin: 15px;
     text-decoration: none;
+    font-weight: normal;
 
     &:hover {
         text-decoration: underline;
     }
  }
+
+ .row.border-bottom {
+    margin-top: 10px; 
+    }
 }
 
 .networks {
     display: flex;
     justify-content: center;
+
     a {
         margin: 5px; 
+        
         img {
             width: 20px; 
             height: auto;
@@ -52,23 +59,30 @@
     }
 }
 
+hr {
+    border: 0; /* Enlève la bordure par défaut */
+    height: 1px; /* Définit la hauteur de la ligne */
+    background-color: #f1f8fc;
+    margin: 20px 0; /* Espace au-dessus et en dessous de la ligne */
+}
+
 @media (max-width: 768px) {
     .footer {
-        padding: 10px; // Réduit le padding sur mobile
+        padding: 10px; /* Réduit le padding sur mobile */
     }
 
     .content {
-        flex-direction: column; // Empile le contenu verticalement
-        align-items: flex-start; // Aligne à gauche
-        padding-bottom: 10px; // Ajuste l'espace en bas
+        flex-direction: column; /* Empile le contenu verticalement */
+        align-items: flex-start; /* Aligne à gauche */
+        padding-bottom: 10px; /* Ajuste l'espace en bas */
     }
 
     .footer-link {
-        margin: 5px 0; // Réduit les marges pour les petits écrans
-        text-align: center; // Centre les liens
+        margin: 5px 0; /* Réduit les marges pour les petits écrans */
+        text-align: center; /* Centre les liens*/
     }
 
     .networks {
-        justify-content: center; // Centre les icônes sur mobile
+        justify-content: center; /* Centre les icônes sur mobile */
     }
 }
