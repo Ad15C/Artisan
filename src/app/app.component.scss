@@ -14,6 +14,7 @@ html, body {
     width: 100%;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 header {
@@ -25,13 +26,16 @@ header {
     right: 0;
     width: 100%;
     z-index: 1000; 
+    height: 180px;
 }
 
 main {
     flex: 1; 
-    padding-top: 80px; 
+    padding-top: 150px; 
     padding-bottom: 60px;
     overflow: auto;
+    width: 100vh;
+    background-color: white;
 }
 
 footer {
@@ -42,11 +46,15 @@ footer {
     position: relative; 
     z-index: 1000; 
     margin: 0; 
-    padding: 0;
+    padding: 20px;
     left: 0;
     right: 0;
     bottom: 0;
     font-size: small;
     font-weight: lighter;
 
+      // Ajoute une règle pour s'assurer qu'il prend toute la largeur
+      @media (max-width: 768px) {
+        padding: 10px; // Réduit le padding sur mobile
+    }
 }
