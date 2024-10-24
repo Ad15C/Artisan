@@ -18,17 +18,17 @@
     }
 
     .logo-mobile {
-        display: none; // Cacher le logo mobile par défaut
-        max-height: 100%; // Assurez-vous qu'il s'adapte à la hauteur du header
+        display: none; /* Cacher le logo mobile par défaut */
+        max-height: 100%; /* Assurez-vous qu'il s'adapte à la hauteur du header */
     }
 
     @media (max-width: 768px) {
         .logo-desktop {
-            display: none; // Cacher le logo desktop en mode mobile
+            display: none; /* Cacher le logo desktop en mode mobile */
         }
 
         .logo-mobile {
-            display: block; // Afficher le logo mobile en mode mobile
+            display: block; /* Afficher le logo mobile en mode mobile */
         }
     }
 
@@ -69,8 +69,8 @@
         margin-left: 30px; 
        
             input {
-                width: 100%; // S'adapte à l'espace disponible
-                max-width: 200px; // Limite la largeur de la barre de recherche
+                width: 100%; /* S'adapte à l'espace disponible */
+                max-width: 200px; /* Limite la largeur de la barre de recherche */
             }
     }
 }

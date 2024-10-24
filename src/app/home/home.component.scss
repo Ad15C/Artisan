@@ -8,19 +8,16 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
- }
-
-main {
-    margin-top: 180px;
+    margin-top: 60px;
     margin-bottom: 20px;
-}
+ }
 
 .steps {
     background-color: #f1f8fc;
     padding: 20px;
-    padding-top: 60px;
+   
     color: #00497c;
-    width: 80%;
+    width: 100%;
     margin: 40px auto;
  
 
@@ -32,8 +29,8 @@ main {
     }
 
     @media (max-width: 768px) {
-        padding-top: 80px; // Ajuste pour compenser la hauteur du header sur mobile
-        width: 100%; // Prend toute la largeur sur mobile    
+        padding-top: 80px; /* Ajuste pour compenser la hauteur du header sur mobile */
+        width: 100%; /* Prend toute la largeur sur mobile */
     }
 }
 
@@ -54,15 +51,15 @@ main {
     flex-direction: column;
 
     @media (max-width: 768px) {
-        margin-right: 0; // Supprime l'espace sur mobile
-        margin-bottom: 20px; // Ajoute de l'espace en bas pour séparer l'image
+        margin-right: 0; /* Supprime l'espace sur mobile */
+        margin-bottom: 20px; /* Ajoute de l'espace en bas pour séparer l'image */
     }
 
 }
 
 .step-item {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     margin-bottom: 15px;
 
     a {
@@ -78,16 +75,80 @@ main {
     height: auto; /* Conserve le ratio de l'image */
 
     @media (max-width: 768px) {
-        max-width: 100%; // Prend toute la largeur sur mobile
+        max-width: 100%; /* Prend toute la largeur sur mobile */
     }
 }
 
 .top-artisans {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 20px;
-    text-align: center; // Centre le texte
-    width: 80px;
+    text-align: center; 
+    background-color: #f1f8fc;
+    width: 100%;
 
     h2 {
         color: #0047c7;
+        text-align: center;
+        margin: 0;
+        padding-bottom: 30px;
     }
+
+    .artisan-list {
+        display: flex; 
+        justify-content: center; 
+        padding: 0; 
+        list-style-type: none; 
+        gap: 15px; /* Espacement uniforme */
+    }
+    
+    .artisan-list li {
+        width: 100%; /* Prend toute la largeur sur mobile */
+        max-width: 250px; /* Largeur fixe maximum */
+        height: 300px; 
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; /* Change à flex-start pour éviter un espacement excessif */
+        text-align: center; 
+        border: 1px solid #0047c7; 
+        padding: 10px; 
+        border-radius: 5px;     
+    }
+    
+    .artisan-list img {
+        max-width: 100%; 
+        height: auto; 
+        margin-bottom: 10px; /* Réduit l'espacement sous l'image */
+    }
+
+    .artisan-separator {
+        border: none; 
+        height: 2px;
+        background-color: #0047c7;
+        margin: 5px 0; /* Réduit l'espacement autour du trait */
+    }
+
+    .artisan-list li div {
+        margin: 2px 0; /* Réduit l'espacement vertical entre les lignes */
+    }
+
+        @media (min-width: 768px) {
+            .artisan-list {
+                flex-direction: row; 
+                flex-wrap: wrap; 
+                justify-content: center;
+            }
+            
+            .artisan-list li {
+                width: calc(50% - 15px); 
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .artisan-list li {
+                width: calc(33.33% - 10px); 
+            }
+         }
+
 }
