@@ -33,5 +33,17 @@
     </section>
     <section class="top-artisans">
         <h2>Top 3 des artisans du mois</h2>
+        <div >
+            <ul class="artisan-list">
+                <li *ngFor="let artisan of topArtisans">
+                    <img [src]="artisan.image" alt="{{ artisan.specialty }}" />
+                    <hr class="artisan-separator">
+                    <strong>{{ artisan.name }}</strong>
+                    <div><em><u>Spécialité</u></em> : {{ artisan.specialty }}</div>
+                    <div><em><u>Localisation</u></em> : {{ artisan.location }}</div>
+                    <div><em><u>Note</u></em> : {{ artisan.note }}/5</div>
+                </li>
+            </ul>
+        </div>
     </section>
 </main>
