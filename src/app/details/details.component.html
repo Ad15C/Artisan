@@ -1,0 +1,12 @@
+<main>
+    <div *ngIf="details">
+      <h2>{{ details.name }}</h2>
+      <p><strong>Spécialité:</strong> {{ details.specialty }}</p>
+      <p><strong>Note:</strong> {{ details.note }}</p>
+      <p><strong>Localisation:</strong> {{ details.location }}</p>
+      <p><strong>Description:</strong> {{ details.about }}</p>
+      <p><strong>Email:</strong> {{ details.email }}</p>
+      <p><strong>Site Web:</strong> <a [href]="details.website">{{ details.website }}</a></p>
+    </div>
+  </main>
+  

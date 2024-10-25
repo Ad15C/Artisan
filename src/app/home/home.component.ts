@@ -20,4 +20,7 @@ export class HomeComponent implements OnInit {
     this.topArtisans = this.artisansService.getTop3Artisans(); // Récupérer les 3 meilleurs artisans
     console.log(this.topArtisans);
   }
+  formatArtisanName(name: string): string {
+    return name.toLowerCase().replace(/\s+/g, '-');
+  }
 }

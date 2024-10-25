@@ -15,6 +15,7 @@ import { BatimentComponent} from './batiment/batiment.component';
 import { ServicesComponent } from './services/services.component';
 import { FabricationComponent } from './fabrication/fabrication.component';
 import { AlimentationComponent } from './alimentation/alimentation.component';
+import { DetailsComponent } from './details/details.component';
 
 
 @NgModule({
@@ -30,6 +31,8 @@ import { AlimentationComponent } from './alimentation/alimentation.component';
     ServicesComponent,
     FabricationComponent,
     AlimentationComponent,
+    DetailsComponent,
+
   ],
   imports: [
     BrowserModule,

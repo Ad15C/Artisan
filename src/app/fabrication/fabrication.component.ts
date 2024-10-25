@@ -18,4 +18,7 @@ export class FabricationComponent {
       artisan.category === this.category
     );
   }
+  formatArtisanName(name: string): string {
+    return name.toLowerCase().replace(/\s+/g, '-');
+  }
 }
