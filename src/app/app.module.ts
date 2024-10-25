@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +9,8 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { ArtisansComponent } from './artisans/artisans.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { ArtisanFilterPipe } from './artisan-filter.pipe';
+import { ArtisansService } from './artisans.service';
 
 @NgModule({
   declarations: [
@@ -16,15 +19,15 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     FooterComponent,
     HomeComponent,
     ArtisansComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    ArtisanFilterPipe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [
-    provideClientHydration()
-  ],
+  providers: [ArtisansService], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

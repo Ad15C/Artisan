@@ -15,18 +15,20 @@
 .steps {
     background-color: #f1f8fc;
     padding: 20px;
-   
     color: #00497c;
     width: 100%;
     margin: 40px auto;
  
 
-    h2 {
+    h1, h2 {
         text-align: center;
         color: #0047c7;
-        margin-bottom: 20px;
-        padding: 5px;
+        margin-bottom: 60px;
+        padding: 10px;
+    
     }
+
+ 
 
     @media (max-width: 768px) {
         padding-top: 80px; /* Ajuste pour compenser la hauteur du header sur mobile */
@@ -88,12 +90,13 @@
     background-color: #f1f8fc;
     width: 100%;
 
-    h2 {
-        color: #0047c7;
+    h1, h2 {
+        color:#0047c7;
         text-align: center;
         margin: 0;
         padding-bottom: 30px;
     }
+
 
     .artisan-list {
         display: flex; 
@@ -111,7 +114,7 @@
         flex-direction: column;
         justify-content: flex-start; /* Change à flex-start pour éviter un espacement excessif */
         text-align: center; 
-        border: 1px solid #0047c7; 
+        box-shadow: 0 2px 5px #384050;
         padding: 10px; 
         border-radius: 5px;     
     }
