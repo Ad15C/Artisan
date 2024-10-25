@@ -1,13 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { ArtisansComponent } from './artisans/artisans.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { BatimentComponent } from './batiment/batiment.component';
+import { ServicesComponent } from './services/services.component';
+import { AlimentationComponent } from './alimentation/alimentation.component';
+import { FabricationComponent } from './fabrication/fabrication.component';
+
 
 const routes: Routes = [
-  {path:'', component: HomeComponent}, //Page d'accueil
-  {path: 'artisans', component: ArtisansComponent},
-  {path:'**', component: PagenotfoundComponent} //Route non trouvée
+  {path:'', component: HomeComponent}, 
+  { path: 'search-results', component: SearchResultsComponent },
+  { path: 'batiment', component: BatimentComponent },
+  { path: 'services', component: ServicesComponent },
+  { path: 'alimentation', component: AlimentationComponent },
+  { path: 'fabrication', component: FabricationComponent },
+  {path:'**', component: PagenotfoundComponent } /*Route non trouvée */
   
 ];
 

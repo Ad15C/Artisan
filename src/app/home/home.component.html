@@ -1,8 +1,6 @@
 <main>
     <section class="steps">
-        <a routerLink="/artisans" class="title-link">
         <h1>Comment trouver mon artisan?</h1>
-        </a>
         <div class="steps-content">
             <div class="steps-list">
                 <div class="step-item">
@@ -39,8 +37,9 @@
             <ul class="artisan-list">
                 <li *ngFor="let artisan of topArtisans">
                     <img [src]="artisan.image" alt="{{ artisan.specialty }}" />
-                    <hr class="artisan-separator">
+                    <hr>
                     <strong>{{ artisan.name }}</strong>
+                    <hr>
                     <div><u>Spécialité:</u> {{ artisan.specialty }}</div>
                     <div><u>Localisation:</u> {{ artisan.location }}</div>
                     <div><u>Note:</u> {{ artisan.note }}/5</div>

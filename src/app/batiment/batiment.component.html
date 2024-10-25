@@ -1,0 +1,19 @@
+<main>
+    <h2>Artisans de la catégorie "{{ category }}"</h2>
+    <ul class="artisan-list">
+        <li *ngFor="let artisan of artisans" class="artisan-card"> 
+            <img [src]="artisan.image" alt="{{ artisan.specialty }}" />
+            <hr>
+            <strong>{{ artisan.name }}</strong>
+            <hr>
+            <div><u>Spécialité:</u> {{ artisan.specialty }}</div>
+            <div><u>Localisation:</u> {{ artisan.location }}</div>
+            <div><u>Note:</u> {{ artisan.note }}/5</div>
+        </li>
+    </ul>
+    <ng-container *ngIf="artisans.length === 0">
+        <p>Aucun artisan trouvé pour cette catégorie.</p>
+    </ng-container>
+</main>
+
+

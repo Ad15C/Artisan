@@ -35,8 +35,10 @@
             </div>
         </nav>
         
-        <form class="d-flex" role="search" (ngSubmit)="onSearch()">
-            <input class="form-control me-2" type="search" placeholder="Rechercher un artisan" [(ngModel)]="searchTerm" name="searchTerm" (keyup)="onSearch()" />
+        <form (ngSubmit)="onSearch()">
+            <input [(ngModel)]="searchTerm" placeholder="Rechercher un artisan..." name="search" required />
+            <button type="submit">Rechercher</button>
         </form>
+        
     </div>
 </header>
