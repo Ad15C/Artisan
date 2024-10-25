@@ -7,20 +7,25 @@ import { Artisan } from './artisan.model';
 export class ArtisanFilterPipe implements PipeTransform {
   transform(
     artisans: Artisan[], 
-    localisation: string = '', 
-    specialite: string = '', 
-    note?: number, 
-    category: string = ''
+    name?: string,
+    specialty?: string,
+    note?: number,
+    location?: string ,
+    category?: string,
+    image?: string,
+   
   ): Artisan[] {
     if (!artisans) return [];
-    if (!localisation && !specialite && !category && note === undefined) return artisans;
+    if (!name && !specialty && note === undefined && !location && !category) return artisans;
 
     return artisans.filter(artisan => {
-      const matchesLocation = localisation ? artisan.location.toLowerCase().includes(localisation.toLowerCase()) : true;
-      const matchesSpecialty = specialite ? artisan.specialty.toLowerCase().includes(specialite.toLowerCase()) : true;
+      const matchesName = name ? artisan.name.toLowerCase().includes(name.toLowerCase()) : true;
+      const matchesSpecialty = specialty ? artisan.specialty.toLowerCase().includes(specialty.toLowerCase()) : true;
+      const matchesNote = note !== undefined ? artisan.note === note : true;
+      const matchesLocation = location ? artisan.location.toLowerCase().includes(location.toLowerCase()) : true;
       const matchesCategory = category ? artisan.category.toLowerCase().includes(category.toLowerCase()) : true;
 
-      return matchesLocation && matchesSpecialty && matchesCategory;
+      return matchesName && matchesSpecialty && matchesNote && matchesLocation && matchesCategory;
     });
   }
 }

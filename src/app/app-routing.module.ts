@@ -7,6 +7,8 @@ import { BatimentComponent } from './batiment/batiment.component';
 import { ServicesComponent } from './services/services.component';
 import { AlimentationComponent } from './alimentation/alimentation.component';
 import { FabricationComponent } from './fabrication/fabrication.component';
+import { DetailsComponent } from './details/details.component';
+
 
 
 const routes: Routes = [
@@ -16,6 +18,7 @@ const routes: Routes = [
   { path: 'services', component: ServicesComponent },
   { path: 'alimentation', component: AlimentationComponent },
   { path: 'fabrication', component: FabricationComponent },
+  { path: 'artisan/:name', component: DetailsComponent },
   {path:'**', component: PagenotfoundComponent } /*Route non trouvée */
   
 ];

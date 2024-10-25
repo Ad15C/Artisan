@@ -229,7 +229,7 @@ private categoryImages: { [key in Category]: string } = {
 private categoryNames: string[] = Object.values(Category);
 
 constructor () {}
-
+/* Retourne la liste des artisans avec les images associées */
 getArtisans(): (Artisan & { image: string })[] {
 	return this.artisans.map(artisan => {
 		const image = this.categoryImages[artisan.category as Category] || "assets/favicons/favicon-32.png";
@@ -239,15 +239,22 @@ getArtisans(): (Artisan & { image: string })[] {
 		};
 	});
 }
-
+/* Retorne les trois artisans ayant la meilleure note et étant notés comme top*/
 getTop3Artisans(): Artisan[] {
 	return this.artisans
 		.filter(artisan => artisan.top)
 		.sort((a, b) => b.note - a.note)
 		.slice(0, 3);
 }
-
+/* Retourne les noms des catégories */
 getCategoryNames(): string[] {
 	return this.categoryNames;
 }
+/* Retourne un artisan en fonction de son nom */
+getArtisanByName(name: string | undefined): Artisan | undefined {
+	/* Vérification que le nom est défini */
+	if (!name) return undefined; 
+	return this.artisans.find(artisan => artisan.name.toLowerCase().replace(/\s+/g, '-') === name);
+  }
+  
 }
