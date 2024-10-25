@@ -1,6 +1,6 @@
 <div class="container">
   <header>
-    <app-header></app-header>
+    <app-header (searchChanged)="handleSearch($event)"></app-header>   
   </header>
   <main>
     <router-outlet></router-outlet>

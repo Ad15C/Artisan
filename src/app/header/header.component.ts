@@ -1,5 +1,6 @@
 import { Component, HostListener, Inject, PLATFORM_ID, Output, EventEmitter } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +14,8 @@ export class HeaderComponent {
 
   @Output() searchChanged = new EventEmitter<string>();
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, 
+  private router: Router) {
     this.checkScreenSize();
   }
 
@@ -42,8 +44,9 @@ export class HeaderComponent {
     }
   }
 
-  // Émet le terme de recherche
   onSearch(): void {
     this.searchChanged.emit(this.searchTerm);
+    this.router.navigate(['/search-results'], { queryParams: { term: this.searchTerm } }); // Redirige avec le terme
+    this.searchTerm = ''; // Vide le champ après la recherche
   }
 }

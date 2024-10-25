@@ -1,0 +1,22 @@
+<main>
+    <h2>Résultats de recherche</h2>
+
+    <div *ngIf="filteredArtisans.length > 0; else noResults">
+        <ul class="artisan-list">
+            <li *ngFor="let artisan of filteredArtisans" class="artisan-card">
+                <img [src]="artisan.image" alt="{{ artisan.specialty }}" />
+                <hr>
+                <strong>{{ artisan.name }}</strong>
+                <hr>
+                <div><u>Spécialité:</u> {{ artisan.specialty }}</div>
+                <div><u>Localisation:</u> {{ artisan.location }}</div>
+                <div><u>Note:</u> {{ artisan.note }}/5</div>
+            </li>
+        </ul>
+    </div>
+    
+    <ng-template #noResults>
+      <p>Aucun artisan trouvé pour cette recherche.</p>
+    </ng-template>
+    
+</main>

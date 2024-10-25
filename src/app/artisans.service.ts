@@ -166,7 +166,7 @@ export class ArtisansService {
 		"about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eleifend ante sem, id volutpat massa fermentum nec. Praesent volutpat scelerisque mauris, quis sollicitudin tellus sollicitudin. ",
 		"email":"contact@truchon-traiteur.fr",
 		"website":"https://truchon-traiteur.fr",
-		"category":"Bâtiment",
+		"category":"Alimentation",
 		"top": false
 	},
 	{

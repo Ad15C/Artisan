@@ -7,10 +7,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import { ArtisansComponent } from './artisans/artisans.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ArtisanFilterPipe } from './artisan-filter.pipe';
 import { ArtisansService } from './artisans.service';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { BatimentComponent} from './batiment/batiment.component';
+import { ServicesComponent } from './services/services.component';
+import { FabricationComponent } from './fabrication/fabrication.component';
+import { AlimentationComponent } from './alimentation/alimentation.component';
+
 
 @NgModule({
   declarations: [
@@ -18,9 +23,13 @@ import { ArtisansService } from './artisans.service';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    ArtisansComponent,
     PagenotfoundComponent,
-    ArtisanFilterPipe
+    ArtisanFilterPipe,
+    SearchResultsComponent,
+    BatimentComponent,
+    ServicesComponent,
+    FabricationComponent,
+    AlimentationComponent,
   ],
   imports: [
     BrowserModule,
