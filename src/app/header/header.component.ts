@@ -1,46 +1,49 @@
-import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, HostListener, Inject, PLATFORM_ID, Output, EventEmitter } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'] 
 })
-
 export class HeaderComponent {
   isNavbarOpen = false;
   isMobileOrTablet = false;
+  searchTerm: string = '';
+
+  @Output() searchChanged = new EventEmitter<string>();
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
-    //vérification de la taille ecran
     this.checkScreenSize();
   }
 
-  //Changement etat du menu
+  // Changement état du menu
   toggleNavbar() {
     this.isNavbarOpen = !this.isNavbarOpen;
   }
 
-  //decorateur  pour ecouter evenement
+  // Décorateur pour écouter l'événement de redimensionnement
   @HostListener('window:resize', ['$event'])
   onResize(event: Event) {
-    //verifie taille ecran lors du redimensionnement
     this.checkScreenSize();
   }
 
+  // Vérification de la taille d'écran
   checkScreenSize() {
     if (isPlatformBrowser(this.platformId)) {
       const width = window.innerWidth;
-      //sauegarde etat precedent
       const wasMobile = this.isMobileOrTablet;
-      //definit si c'est un mobile ou une tablette
-      this.isMobileOrTablet = window.innerWidth <= 768; 
+      this.isMobileOrTablet = width <= 768; 
 
-      //ferme le menu si on est en mode mobile
+      // Ferme le menu si on est en mode mobile
       if (this.isMobileOrTablet && !wasMobile) {
         this.isNavbarOpen = false;
       }
     }
+  }
+
+  // Émet le terme de recherche
+  onSearch(): void {
+    this.searchChanged.emit(this.searchTerm);
   }
 }

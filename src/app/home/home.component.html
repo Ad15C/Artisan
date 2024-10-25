@@ -1,6 +1,8 @@
 <main>
     <section class="steps">
-        <h2>Comment trouver mon artisan?</h2>
+        <a routerLink="/artisans" class="title-link">
+        <h1>Comment trouver mon artisan?</h1>
+        </a>
         <div class="steps-content">
             <div class="steps-list">
                 <div class="step-item">
@@ -39,9 +41,9 @@
                     <img [src]="artisan.image" alt="{{ artisan.specialty }}" />
                     <hr class="artisan-separator">
                     <strong>{{ artisan.name }}</strong>
-                    <div><em><u>Spécialité</u></em> : {{ artisan.specialty }}</div>
-                    <div><em><u>Localisation</u></em> : {{ artisan.location }}</div>
-                    <div><em><u>Note</u></em> : {{ artisan.note }}/5</div>
+                    <div><u>Spécialité:</u> {{ artisan.specialty }}</div>
+                    <div><u>Localisation:</u> {{ artisan.location }}</div>
+                    <div><u>Note:</u> {{ artisan.note }}/5</div>
                 </li>
             </ul>
         </div>
