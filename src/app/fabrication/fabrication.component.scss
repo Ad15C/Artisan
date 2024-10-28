@@ -27,6 +27,16 @@ hr {
     list-style-type: none; 
 }
 
+
+.artisan-list a {
+    color: #0047c7;
+}
+
+.artisan-list a:hover {
+    color: #384050;
+    text-decoration:underline;
+}
+
 .artisan-card {
     border: 1px solid #f1f8fc; 
     border-radius: 8px; 
