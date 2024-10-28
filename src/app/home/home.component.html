@@ -38,7 +38,9 @@
                 <li *ngFor="let artisan of topArtisans">
                     <img [src]="artisan.image" alt="{{ artisan.specialty }}" />
                     <hr>
-                    
+                    <a [routerLink]="['/artisan', formatArtisanName(artisan.name)]">
+                        {{ artisan.name }}
+                      </a>
                     <hr>
                     <div><u>Spécialité:</u> {{ artisan.specialty }}</div>
                     <div><u>Localisation:</u> {{ artisan.location }}</div>

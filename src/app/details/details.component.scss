@@ -1,0 +1,91 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 80px;
+    margin-bottom: 20px;
+    max-width: 1200px;
+}
+
+.row {
+    width: 100%;
+    max-width: 1200px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+}
+
+.title {
+    width: 100%; // Titre prend toute la largeur
+    text-align: center; // Centre le titre
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+
+  .detail-list {
+    list-style-type: none; // Enlève les puces de la liste
+    padding: 10px; // Enlève le padding par défaut
+    width: 100%; // S'assure que la liste utilise toute la largeur
+
+    .detail-item {
+      display: flex;
+      align-items: center; // Aligne verticalement les éléments
+      justify-content: flex-start; // Aligne à gauche
+      margin-bottom: 10px; // Espace entre les items
+
+      img {
+        margin-right: 10px; // Espace entre l'image et le texte
+        width: 30px; // Ajustez selon vos besoins
+        height: auto; // Maintient le ratio de l'image
+      }
+
+      p {
+        margin: 5px; 
+      }
+    }
+  }
+
+
+
+.accordion {
+    width: 80vh;
+    border: 1px solid #384050; 
+}
+
+.accordion-item {
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    margin: 5px;
+}
+
+.accordion-header {
+    background-color: #0074c7; /* Change l'arrière-plan de l'en-tête */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #f1f8fc;
+    padding: 10px;
+   
+}
+
+.accordion-button {
+    background-color:#0074c7; 
+    border: none;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color:#0074c7; /* Arrière-plan lorsque l'accordéon est ouvert */  
+}
+
+.accordion-collapse {
+    transition: max-height 0.4s ease;
+}
+
+.accordion-body {
+    color: #384050;
+    padding: 10px;
+}

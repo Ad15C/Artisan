@@ -125,6 +125,15 @@
         margin-bottom: 10px; /* Réduit l'espacement sous l'image */
     }
 
+    .artisan-list a {
+        color: #0047c7;
+    }
+
+    .artisan-list a:hover {
+        color: #384050;
+        text-decoration: underline;
+    }
+
     .artisan-separator {
         border: none; 
         height: 2px;
