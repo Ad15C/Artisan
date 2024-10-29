@@ -3,14 +3,15 @@
     width: 100%;
     background-color: white;
 }
- main {
+
+main {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     margin-top: 60px;
     margin-bottom: 20px;
- }
+}
 
 .steps {
     background-color: #f1f8fc;
@@ -18,21 +19,17 @@
     color: #00497c;
     width: 100%;
     margin: 40px auto;
- 
 
     h1, h2 {
         text-align: center;
         color: #0047c7;
         margin-bottom: 60px;
         padding: 10px;
-    
     }
 
- 
-
     @media (max-width: 768px) {
-        padding-top: 80px; /* Ajuste pour compenser la hauteur du header sur mobile */
-        width: 100%; /* Prend toute la largeur sur mobile */
+        padding-top: 80px;
+        width: 100%;
     }
 }
 
@@ -42,21 +39,20 @@
     width: 100%;
 
     @media (max-width: 768px) {
-        flex-direction: column; /* Empile les éléments sur les petits écrans */
+        flex-direction: column;
     }
 }
 
 .steps-list {
     flex: 1;
-    margin-right: 20px; /* Espace entre la liste et l'image */
+    margin-right: 20px;
     display: flex;
     flex-direction: column;
 
     @media (max-width: 768px) {
-        margin-right: 0; /* Supprime l'espace sur mobile */
-        margin-bottom: 20px; /* Ajoute de l'espace en bas pour séparer l'image */
+        margin-right: 0;
+        margin-bottom: 20px;
     }
-
 }
 
 .step-item {
@@ -67,17 +63,17 @@
     a {
         margin-right: 10px;
     }
-        img {
-            margin-right: 10px;
-        }
+    img {
+        margin-right: 10px;
+    }
 }
 
 .steps-image {
-    max-width: 20%; 
-    height: auto; /* Conserve le ratio de l'image */
+    max-width: 20%;
+    height: auto;
 
     @media (max-width: 768px) {
-        max-width: 100%; /* Prend toute la largeur sur mobile */
+        max-width: 100%;
     }
 }
 
@@ -91,38 +87,46 @@
     width: 100%;
 
     h1, h2 {
-        color:#0047c7;
+        color: #0047c7;
         text-align: center;
         margin: 0;
         padding-bottom: 30px;
     }
 
+    hr {
+        background-color: #0047c7;
+    }
 
     .artisan-list {
-        display: flex; 
-        justify-content: center; 
-        padding: 0; 
-        list-style-type: none; 
-        gap: 15px; /* Espacement uniforme */
-    }
-    
-    .artisan-list li {
-        width: 100%; /* Prend toute la largeur sur mobile */
-        max-width: 250px; /* Largeur fixe maximum */
-        height: 300px; 
         display: flex;
-        flex-direction: column;
-        justify-content: flex-start; /* Change à flex-start pour éviter un espacement excessif */
-        text-align: center; 
-        box-shadow: 0 2px 5px #384050;
-        padding: 10px; 
-        border-radius: 5px;     
+        flex-wrap: nowrap; /* Empêche le passage à la ligne */
+        justify-content: space-between; /* Espacement égal entre les cartes */
+        margin-top: 20px;
+        padding: 0;
+        list-style-type: none; 
     }
-    
-    .artisan-list img {
-        max-width: 100%; 
-        height: auto; 
-        margin-bottom: 10px; /* Réduit l'espacement sous l'image */
+
+    .artisan-card {
+        border: 1px solid #f1f8fc; 
+        border-radius: 8px; 
+        padding: 16px; 
+        margin: 10px; 
+        width: calc(33.33% - 20px); /* Trois cartes sur la ligne */
+        text-align: center;
+        box-shadow: 0 2px 5px #384050;
+        background-color: #f1f8fc;
+
+        @media (max-width: 768px) {
+            width: calc(50% - 20px); /* Deux cartes par ligne sur les petits écrans */
+        }
+
+        @media (max-width: 480px) {
+            width: calc(100% - 20px); /* Une carte par ligne sur les très petits écrans */
+        }
+    }
+
+    .artisan-list li div {
+        margin: 2px 0;
     }
 
     .artisan-list a {
@@ -133,34 +137,4 @@
         color: #384050;
         text-decoration: underline;
     }
-
-    .artisan-separator {
-        border: none; 
-        height: 2px;
-        background-color: #0047c7;
-        margin: 5px 0; /* Réduit l'espacement autour du trait */
-    }
-
-    .artisan-list li div {
-        margin: 2px 0; /* Réduit l'espacement vertical entre les lignes */
-    }
-
-        @media (min-width: 768px) {
-            .artisan-list {
-                flex-direction: row; 
-                flex-wrap: wrap; 
-                justify-content: center;
-            }
-            
-            .artisan-list li {
-                width: calc(50% - 15px); 
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .artisan-list li {
-                width: calc(33.33% - 10px); 
-            }
-         }
-
 }

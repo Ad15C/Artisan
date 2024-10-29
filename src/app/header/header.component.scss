@@ -1,6 +1,6 @@
 .header {
     padding: 10px 20px; 
-    
+
     .container {
         display: flex;
         align-items: center;
@@ -37,14 +37,14 @@
         align-items: center;
         background-color: #00497c;
         flex-grow: 1;
-        
+
         .navbar-toggler {
             background-color: #00497c; /* Couleur du bouton hamburger */
         }
 
         .navbar-collapse {
             display: flex;
-            justify-content: flex-end;;
+            justify-content: flex-end;
             flex-grow: 1; 
         }
 
@@ -56,21 +56,44 @@
             .nav-item {
                 margin: 0 25px; /* Espace entre les sections */
                 list-style: none; 
+
+                &:hover {
+                    background-color: #0074c7; /* Couleur de fond au survol */
+                    border-radius: 5px; /* Arrondir les coins si souhaité */
+                }
+
+                .link {
+                    color: #f1f8fc; /* Couleur par défaut */
+                    text-decoration: none; 
+                    display: block; /* Permet au lien de remplir tout l'espace du li */
+                    padding: 10px; /* Ajoute du padding pour un meilleur look */
+                }
             }
         }
     }
 
-    .link {
-        color: #f1f8fc;
-        text-decoration: none; 
-    }
-
     form {
+        display: flex;
+        align-items: center; 
         margin-left: 30px; 
-       
-            input {
-                width: 300px; /* Augmente la largeur ici */
-                max-width: 100%; /* s'adapte à l'espace disponible */
+        
+        input {
+            width: 300px; 
+            max-width: 100%; /* S'adapte à l'espace disponible */
+            margin-right: 10px; /* Espace entre l'input et le bouton */
+        }
+
+        button {
+            padding: 10px 15px; 
+            background-color: #00497c; 
+            color: #f1f8fc; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; /* Curseur en forme de main */
+            
+            &:hover {
+                background-color: #0074c7; /* Couleur au survol du bouton */
             }
+        }
     }
 }

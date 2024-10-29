@@ -35,7 +35,7 @@
         <h2>Top 3 des artisans du mois</h2>
         <div >
             <ul class="artisan-list">
-                <li *ngFor="let artisan of topArtisans">
+                <li *ngFor="let artisan of topArtisans" class="artisan-card">
                     <img [src]="artisan.image" alt="{{ artisan.specialty }}" />
                     <hr>
                     <a [routerLink]="['/artisan', formatArtisanName(artisan.name)]">
