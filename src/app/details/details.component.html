@@ -56,13 +56,30 @@
           </h2>
           <div class="accordion-collapse collapse" [class.show]="activeAccordion === 3" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
             <div class="accordion-body">
-              Mettre un formulaire ici.
+              <form #myForm="ngForm" (ngSubmit)="sendEmail(myForm)">
+                <div class="mb-3">
+                  <input type="text" class="form-control" name="name" placeholder="Nom" ngModel required>
+                </div>
+                <div class="mb-3">
+                  <input type="text" class="form-control" name="firstName" placeholder="Prénom" ngModel required>
+                </div>
+                <div class="mb-3">
+                  <input type="text" class="form-control" name="object" placeholder="Objet de votre demande" ngModel required>
+                </div>
+                <div class="mb-3">
+                  <textarea class="form-control" name="message" rows="3" placeholder="Message" ngModel required>
+                  </textarea>
+                </div>
+                <div class="col-auto">
+                  <button type="submit" class="btn btn-primary mb-3">Envoyer votre demande</button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>      
+  </div>      
 </main>
  
 
