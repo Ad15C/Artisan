@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Artisan } from '../artisan.model';
 import { ActivatedRoute } from '@angular/router';
 import { ArtisansService } from '../artisans.service';
-import emailjs from '@emailjs/browser';
-import { NgForm } from '@angular/forms';
+import emailjs from 'emailjs-com';
+import { environment } from 'environnements/environnement';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-details',
@@ -14,58 +16,24 @@ export class DetailsComponent implements OnInit{
   details?: Artisan;
   artisan?: Artisan;
   activeAccordion: number | null = 1; /* accordéon actif */
-
-  toggleAccordion(index: number) {
-    this.activeAccordion = this.activeAccordion === index ? null : index;
-  }
-
-  sendEmail(form: NgForm) {
-    console.log("Form Submitted");
-    console.log("Form Valid:", form.valid);
-    console.log("Form Values:", form.value);  // Vérifiez les valeurs ici
-
-    if (form.invalid) {
-        alert("Veuillez remplir tous les champs obligatoires.");
-        return;
-    }
-
-    const templateParams = {
-        name: form.value.name,
-        firstName: form.value.firstName,
-        object: form.value.object,
-        message: form.value.message,
-        artisanEmail: 'ad15canon@gmail.com'
-    };
-
-    const publicKey = import.meta.env['VITE_EMAILJS_PUBLIC_KEY'];
-    const serviceID = import.meta.env['VITE_EMAIL_SERVICE_ID'];
-    const templateID = import.meta.env['VITE_EMAILJS_TEMPLATE_ID'];
-
-    console.log("Template Params:", templateParams);  // Vérifiez les valeurs ici
-
-    // Envoyez l'email
-    emailjs.send(serviceID, templateID, templateParams)
-        .then((res: any) => {
-            alert('Votre message a bien été envoyé !');
-            (document.querySelector('#myForm') as HTMLFormElement)?.reset();
-        })
-        .catch((error: any) => {
-            console.error("Erreur lors de l'envoi du formulaire :", error);
-            alert("Une erreur est survenue lors de l'envoi de votre formulaire. Veuillez réessayer.");
-        });
-}
-
+  contactForm: FormGroup;
+  confirmationMessage: string | null = null;
 
   constructor (
     private route: ActivatedRoute,
-    private artisanService: ArtisansService
-  ) {}
+    private artisanService: ArtisansService,
+    private fb: FormBuilder /* Ajout du FormBuilder*/
+  ) {
+    /* Initialisation du formulaire */
+    this.contactForm = this.fb.group({
+      name: ['', Validators.required],
+      firstName: ['', Validators.required],
+      object: ['', Validators.required],
+      message: ['', Validators.required]
+    });
+  }
 
   ngOnInit(): void  {
-    console.log(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
-    console.log(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
-    console.log(import.meta.env.VITE_EMAILJS_TEMPLATE_ID);
-
     const name = this.route.snapshot.paramMap.get('name')?.toLowerCase();
     this.details = this.artisanService.getArtisanByName(name);
 
@@ -74,5 +42,36 @@ export class DetailsComponent implements OnInit{
     }
   }
 
-  
+  toggleAccordion(index: number) {
+    this.activeAccordion = this.activeAccordion === index ? null : index;
+  }
+
+  sendEmail() {
+    const { name, firstName, object, message } = this.contactForm.value;
+
+    console.log('Public Key:', environment.emailjsPublicKey); 
+    
+    emailjs.send(
+      environment.emailjsServiceId,
+      environment.emailjsTemplateId,
+      {
+        name,
+        firstName,
+        object,
+        message,
+      },
+      environment.emailjsPublicKey
+    )
+    .then(
+      (response) => {
+        console.log('Votre message a bien été envoyé', response);
+        this.confirmationMessage = 'Votre message a bien été envoyé ! Nous vous répondrons dans les plus brefs délais.'; /* message de confirmation*/
+        this.contactForm.reset(); /* Réinitialisation du formulaire */
+      },
+      (error) => {
+        console.error('Un problème est survenu lors de l\'envoi de votre message', error);
+        this.confirmationMessage = 'Un problème est survenu, veuillez réessayer.'; /* Message d'erreur */
+      }
+    );
+  }
 }
