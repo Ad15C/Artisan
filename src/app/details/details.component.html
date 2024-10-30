@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-md-4 text-center">
       <div *ngIf="artisan">
-        <h1> {{details?.name}}</h1>
+        <h1 class="artisan-name"> {{details?.name}}</h1>
         <ul class="detail-list">
           <li class="detail-item">
             <img src="assets/favicons/specialite-bleu.png" alt="Favicon représentant le métier"/>
@@ -56,24 +56,26 @@
           </h2>
           <div class="accordion-collapse collapse" [class.show]="activeAccordion === 3" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
             <div class="accordion-body">
-              <form #myForm="ngForm" (ngSubmit)="sendEmail(myForm)">
+              <div *ngIf="confirmationMessage" class="alert alert-success" role="alert">
+                {{ confirmationMessage }}
+              </div>
+              <form [formGroup]="contactForm" (ngSubmit)="sendEmail()">
                 <div class="mb-3">
-                  <input type="text" class="form-control" name="name" placeholder="Nom" ngModel required>
+                  <input type="text" class="form-control" formControlName="name" placeholder="Nom" required>
                 </div>
                 <div class="mb-3">
-                  <input type="text" class="form-control" name="firstName" placeholder="Prénom" ngModel required>
+                  <input type="text" class="form-control" formControlName="firstName" placeholder="Prénom" required>
                 </div>
                 <div class="mb-3">
-                  <input type="text" class="form-control" name="object" placeholder="Objet de votre demande" ngModel required>
+                  <input type="text" class="form-control" formControlName="object" placeholder="Objet de votre demande" required>
                 </div>
                 <div class="mb-3">
-                  <textarea class="form-control" name="message" rows="3" placeholder="Message" ngModel required>
-                  </textarea>
+                  <textarea class="form-control" formControlName="message" rows="3" placeholder="Message" required></textarea>
                 </div>
-                <div class="col-auto">
+                <div class="col-auto text-center"> 
                   <button type="submit" class="btn btn-primary mb-3">Envoyer votre demande</button>
                 </div>
-              </form>
+              </form>          
             </div>
           </div>
         </div>
