@@ -9,9 +9,9 @@
     font-size: small; 
     font-weight: normal;
 
-    .container-fluid {
-        padding: 0;
-    }
+.container-fluid {
+    padding: 0;
+}
 
  .content {
     display: flex;
@@ -31,32 +31,31 @@
 
  .footer-link {
     color: #f1f8fc;
-    margin: 15px;
+    margin: 5px;
     text-decoration: none;
     font-weight: normal;
+    display: inline-block;
+    
 
     &:hover {
         text-decoration: underline;
     }
  }
-
- .row.border-bottom {
-    margin-top: 10px; 
-    }
 }
 
 .networks {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap; 
+}
 
-    a {
-        margin: 5px; 
-        
-        img {
-            width: 20px; 
-            height: auto;
-        }
-    }
+.networks a {
+    margin: 5px; 
+}
+
+.networks img {
+    width: 20px; 
+    height: auto;
 }
 
 hr {
@@ -66,23 +65,31 @@ hr {
     margin: 20px 0; /* Espace au-dessus et en dessous de la ligne */
 }
 
+/* Media Queries */
 @media (max-width: 768px) {
     .footer {
-        padding: 10px; /* Réduit le padding sur mobile */
+        padding: 10px; /* Reduce padding on mobile */
     }
 
     .content {
-        flex-direction: column; /* Empile le contenu verticalement */
-        align-items: flex-start; /* Aligne à gauche */
-        padding-bottom: 10px; /* Ajuste l'espace en bas */
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align to the left */
+        padding-bottom: 10px;
     }
 
     .footer-link {
-        margin: 5px 0; /* Réduit les marges pour les petits écrans */
-        text-align: center; /* Centre les liens*/
+        margin: 5px 0; /* Reduce margins on mobile */
+        text-align: center; /* Center links */
     }
+}
 
-    .networks {
-        justify-content: center; /* Centre les icônes sur mobile */
+@media (min-width: 769px) {
+    .content {
+        flex-direction: row; /* Align items in a row for tablets and desktops */
+        justify-content: space-around; /* Distribute space evenly */
+    }
+    
+    .footer-link {
+        margin: 10px; /* Adjust margin for larger screens */
     }
 }

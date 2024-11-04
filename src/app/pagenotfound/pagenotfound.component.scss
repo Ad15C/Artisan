@@ -1,0 +1,20 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+.responsive-img {
+    width: 80%; /* Prend 100% de la largeur de son conteneur */
+    max-width: 500px; /* Limite la largeur maximum à 500px */
+    height: auto; /* Conserve les proportions de l'image */
+}
+
+/* Styles supplémentaires pour le texte */
+p {
+    text-align: center;
+    margin: 10px 0;
+}

@@ -1,99 +1,95 @@
-.header {
-    padding: 10px 20px; 
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    width: 100%;
+}
 
-    .container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between; 
-        width: 100%;
-    }
+.logo {
+    display: flex;
+    align-items: center;
+}
 
-    .logo {
-        display: flex;
-        align-items: center;
-    }
+.logo-desktop { 
+    max-height: 180px;
+}
 
-    .logo-desktop { 
-        max-height: 180px;
+.logo-mobile {
+    display: none; /* Cacher le logo mobile par défaut */
+    max-height: 100%; /* Assurez-vous qu'il s'adapte à la hauteur du header */
+}
+
+@media (max-width: 768px) {
+    .logo-desktop {
+        display: none; /* Cacher le logo desktop en mode mobile */
     }
 
     .logo-mobile {
-        display: none; /* Cacher le logo mobile par défaut */
-        max-height: 100%; /* Assurez-vous qu'il s'adapte à la hauteur du header */
+        display: block; /* Afficher le logo mobile en mode mobile */
+    }
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    background-color: #00497c;
+    flex-grow: 1;
+
+    .navbar-toggler {
+        background-color: #00497c; /* Couleur du bouton hamburger */
     }
 
-    @media (max-width: 768px) {
-        .logo-desktop {
-            display: none; /* Cacher le logo desktop en mode mobile */
-        }
-
-        .logo-mobile {
-            display: block; /* Afficher le logo mobile en mode mobile */
-        }
-    }
-
-    .navbar {
+    .navbar-collapse {
         display: flex;
-        align-items: center;
-        background-color: #00497c;
-        flex-grow: 1;
-
-        .navbar-toggler {
-            background-color: #00497c; /* Couleur du bouton hamburger */
-        }
-
-        .navbar-collapse {
-            display: flex;
-            justify-content: flex-end;
-            flex-grow: 1; 
-        }
-
-        .navbar-nav {
-            display: flex; 
-            margin: 0; 
-            padding: 10px; 
-
-            .nav-item {
-                margin: 0 25px; /* Espace entre les sections */
-                list-style: none; 
-
-                &:hover {
-                    background-color: #0074c7; /* Couleur de fond au survol */
-                    border-radius: 5px; /* Arrondir les coins si souhaité */
-                }
-
-                .link {
-                    color: #f1f8fc; /* Couleur par défaut */
-                    text-decoration: none; 
-                    display: block; /* Permet au lien de remplir tout l'espace du li */
-                    padding: 10px; /* Ajoute du padding pour un meilleur look */
-                }
-            }
-        }
+        justify-content: flex-end;
+        flex-grow: 1; 
     }
 
-    form {
-        display: flex;
-        align-items: center; 
-        margin-left: 30px; 
-        
-        input {
-            width: 300px; 
-            max-width: 100%; /* S'adapte à l'espace disponible */
-            margin-right: 10px; /* Espace entre l'input et le bouton */
-        }
+    .navbar-nav {
+        display: flex; 
+        margin: 0; 
+        padding: 10px; 
 
-        button {
-            padding: 10px 15px; 
-            background-color: #00497c; 
-            color: #f1f8fc; 
-            border: none; 
-            border-radius: 5px; 
-            cursor: pointer; /* Curseur en forme de main */
-            
+        .nav-item {
+            margin: 0 25px; /* Espace entre les sections */
+            list-style: none; 
+
             &:hover {
-                background-color: #0074c7; /* Couleur au survol du bouton */
+                background-color: #0074c7; /* Couleur de fond au survol */
+                border-radius: 5px; /* Arrondir les coins si souhaité */
             }
+
+            .link {
+                color: #f1f8fc; /* Couleur par défaut */
+                text-decoration: none; 
+                display: block; /* Permet au lien de remplir tout l'espace du li */
+                padding: 10px; /* Ajoute du padding pour un meilleur look */
+            }
+        }
+    }
+}
+
+form {
+    display: flex;
+    align-items: center; 
+    margin-left: 30px; 
+    
+    input {
+        width: 300px; 
+        max-width: 100%; /* S'adapte à l'espace disponible */
+        margin-right: 10px; /* Espace entre l'input et le bouton */
+    }
+
+    button {
+        padding: 10px 15px; 
+        background-color: #00497c; 
+        color: #f1f8fc; 
+        border: none; 
+        border-radius: 5px; 
+        cursor: pointer; /* Curseur en forme de main */
+        
+        &:hover {
+            background-color: #0074c7; /* Couleur au survol du bouton */
         }
     }
 }
