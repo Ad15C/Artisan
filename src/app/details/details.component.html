@@ -43,8 +43,10 @@
           </h2>
           <div class="accordion-collapse collapse" [class.show]="activeAccordion === 2" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
             <div class="accordion-body">
-              <p *ngIf="details?.email"><strong>Email:</strong> {{ details?.email }}</p>
-              <p *ngIf="details?.website"><strong>Site Web:</strong> <a [href]="details?.website">{{ details?.website }}</a></p>
+              <p *ngIf="details?.email"><strong>Email: </strong> 
+                <a [href]="'mailto:' + details?.email">{{ details?.email }}</a>
+              </p>
+              <p *ngIf="details?.website"><strong>Site Web: </strong> <a [href]="details?.website">{{ details?.website }}</a></p>
             </div>
           </div>
         </div>

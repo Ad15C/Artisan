@@ -47,6 +47,10 @@ export class DetailsComponent implements OnInit{
   }
 
   sendEmail() {
+    if (this.contactForm.invalid) {
+      this.confirmationMessage = 'Veuillez remplir tous les champs obligatoires.';
+      return; // Arrêtez l'exécution si le formulaire est invalide
+    }
     const { name, firstName, object, message } = this.contactForm.value;
 
     console.log('Public Key:', environment.emailjsPublicKey); 

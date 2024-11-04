@@ -1,27 +1,17 @@
 main {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
-    width: 100%;
-    margin-top: 80px;
-    margin-bottom: 20px;
-    max-width: 1200px;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  width: 100%;
+  margin: 80px auto 20px; /* Centrage avec des marges */
+  max-width: 1200px;
 }
-
-.col-md-4 {
-  width: 100%; /* Pour être sûre que le conteneur prend toute la largeur disponible */
-}
-
 
 .row {
-    width: 100%;
-    max-width: 1200px; 
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap; 
-    align-items: center;
-    padding: 5px;
+  display: flex;
+  flex-direction: column; /* Toujours en colonne */
+  width: 100%;
+  padding: 5px;
 }
 
 .artisan-name {
@@ -31,27 +21,26 @@ main {
 }
 
 .title {
-    width: 100%; // Titre prend toute la largeur
-    text-align: center; // Centre le titre
+    width: 100%; /* Titre prend toute la largeur */
+    text-align: center; 
     margin-bottom: 20px;
     padding: 10px;
   }
 
   .detail-list {
-    list-style-type: none; // Enlève les puces de la liste
-    padding: 10px; // Enlève le padding par défaut
-    width: 100%; // S'assure que la liste utilise toute la largeur
+    list-style-type: none; /* Enlève les puces de la liste */
+    padding: 10px; 
+    width: 100%; 
 
     .detail-item {
       display: flex;
-      align-items: center; // Aligne verticalement les éléments
-      justify-content: flex-start; // Aligne à gauche
-      margin-bottom: 10px; // Espace entre les items
+      align-items: center;
+      justify-content: flex-start; 
+      margin-bottom: 10px; /* Espace entre les items */
 
-      img {
-        margin-right: 10px; // Espace entre l'image et le texte
-        width: 30px; // Ajustez selon vos besoins
-        height: auto; // Maintient le ratio de l'image
+      .detail-item img {
+        margin-right: 10px;
+        width: 30px;
       }
 
       p {
@@ -60,36 +49,36 @@ main {
     }
   }
 
-
-
 .accordion {
-    width: 80vh;
+    width: 100%; /* Prendre 100% de la largeur pour mobiles et autres appareils */
     border: 1px solid #384050; 
     display: flex;
     flex-direction: column;
-    align-content: center;
+    justify-content: center;
 }
 
 .accordion-item {
-    display: flex;
-    flex-direction: column;
-    align-content: space-around;
-    margin: 5px;
+    margin: 5px 0;
 }
 
 .accordion-header {
     background-color: #0074c7; /* Change l'arrière-plan de l'en-tête */
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content:space-between;
     color: #f1f8fc;
     padding: 10px;
-   
 }
 
 .accordion-button {
     background-color:#0074c7; 
     border: none;
+    width: 10%;
+}
+
+.send-button { /* Classe spécifique pour le bouton "Envoyer" */
+  width: 50%; /* Prendre 50% de la largeur */
+  margin: 0 auto; /* Centrer le bouton */
 }
 
 .accordion-button:not(.collapsed) {
@@ -103,4 +92,34 @@ main {
 .accordion-body {
     color: #384050;
     padding: 10px;
+}
+
+/* Mobile styles (default) */
+.send-button {
+  width: 80%; /* Wide on mobile */
+  margin: 0 auto;
+}
+
+/* Tablet styles */
+@media (min-width: 768px) {
+  .send-button {
+    width: 70%;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 992px) {
+  .send-button {
+    width: 50%; /* Adjusts for larger screens */
+  }
+
+  .detail-list {
+    display: flex; /* Display in a row on larger screens */
+    flex-wrap: wrap; /* Allow wrapping */
+  }
+
+  .detail-item {
+    flex: 1 1 30%; /* Allow items to grow/shrink */
+    margin: 10px; /* Margin between items */
+  }
 }
