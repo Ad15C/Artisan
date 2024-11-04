@@ -1,95 +1,182 @@
 .container {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between; 
+    padding: 10px;
     width: 100%;
 }
 
 .logo {
     display: flex;
     align-items: center;
-}
 
-.logo-desktop { 
-    max-height: 180px;
-}
-
-.logo-mobile {
-    display: none; /* Cacher le logo mobile par défaut */
-    max-height: 100%; /* Assurez-vous qu'il s'adapte à la hauteur du header */
-}
-
-@media (max-width: 768px) {
-    .logo-desktop {
-        display: none; /* Cacher le logo desktop en mode mobile */
+    img.logo-desktop { 
+        max-height: 180px;
     }
 
-    .logo-mobile {
-        display: block; /* Afficher le logo mobile en mode mobile */
+    img.logo-mobile {
+        display: none; /* Cacher le logo mobile par défaut */
+        max-height: 100%; /* Assurez-vous qu'il s'adapte à la hauteur du header */
     }
 }
 
 .navbar {
     display: flex;
-    align-items: center;
+    align-items: center; 
     background-color: #00497c;
     flex-grow: 1;
+    justify-content: center; /* Centre le menu horizontalement */
 
-    .navbar-toggler {
-        background-color: #00497c; /* Couleur du bouton hamburger */
+    &.open {
+        display: flex; /* Assurez-vous que le menu s'affiche quand ouvert */
+        flex-direction: column; /* Menu en colonne pour mobile */
+        position: absolute; /* Positionnement absolu */
+        top: 60px; /* Ajustez selon la hauteur de votre header */
+        left: 0;
+        width: 100%;
+        background-color: #00497c; /* Couleur de fond du menu */
+        z-index: 1000; /* Pour que le menu soit au-dessus d'autres éléments */
     }
+}
 
-    .navbar-collapse {
-        display: flex;
-        justify-content: flex-end;
-        flex-grow: 1; 
-    }
+.navbar-nav {
+    display: flex; 
+    flex-direction: row; /* Pour le desktop */
+    margin: 0; 
+    padding: 0; 
+    list-style: none; 
+}
 
-    .navbar-nav {
-        display: flex; 
-        margin: 0; 
+.nav-item {
+    margin: 0 25px; /* Espace entre les sections */
+
+    .link {
+        color: #f1f8fc; /* Couleur des liens */
+        text-decoration: none; 
+        display: block; 
         padding: 10px; 
+        transition: background-color 0.3s;
 
-        .nav-item {
-            margin: 0 25px; /* Espace entre les sections */
-            list-style: none; 
+        &:hover {
+            background-color: #0074c7; /* Couleur de fond au survol */
+            border-radius: 5px; 
+        }
+    }
+}
 
+.navbar-toggler-icon {
+    width: 30px; /* Largeur de l'icône */
+    height: 3px; /* Épaisseur des traits */
+    background-color: #0074c7; /* Couleur des traits */
+    display: block;
+    position: relative;
+
+    &:before,
+    &:after {
+        content: '';
+        width: 30px;
+        height: 3px;
+        background-color: #0074c7; /* Couleur des traits */
+        position: absolute;
+        left: 0;
+    }
+
+    &:before {
+        top: -8px; /* Position du trait du dessus */
+    }
+
+    &:after {
+        top: 8px; /* Position du trait du dessous */
+    }
+}
+
+.search-form {
+    display: flex;
+    align-items: center; 
+
+    form {
+        display: flex;
+        align-items: center; 
+        margin-left: 30px; 
+        
+        input {
+            width: 300px; 
+            max-width: 100%; /* S'adapte à l'espace disponible */
+            margin-right: 10px; /* Espace entre l'input et le bouton */
+        }
+
+        button {
+            padding: 10px 15px; 
+            background-color: #00497c; 
+            color: #f1f8fc; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; /* Curseur en forme de main */
+            
             &:hover {
-                background-color: #0074c7; /* Couleur de fond au survol */
-                border-radius: 5px; /* Arrondir les coins si souhaité */
-            }
-
-            .link {
-                color: #f1f8fc; /* Couleur par défaut */
-                text-decoration: none; 
-                display: block; /* Permet au lien de remplir tout l'espace du li */
-                padding: 10px; /* Ajoute du padding pour un meilleur look */
+                background-color: #0074c7; /* Couleur au survol du bouton */
             }
         }
     }
 }
 
-form {
-    display: flex;
-    align-items: center; 
-    margin-left: 30px; 
-    
-    input {
-        width: 300px; 
-        max-width: 100%; /* S'adapte à l'espace disponible */
-        margin-right: 10px; /* Espace entre l'input et le bouton */
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .navbar {
+        display: none; /* Cache le menu par défaut */
     }
 
-    button {
-        padding: 10px 15px; 
-        background-color: #00497c; 
-        color: #f1f8fc; 
-        border: none; 
-        border-radius: 5px; 
-        cursor: pointer; /* Curseur en forme de main */
-        
-        &:hover {
-            background-color: #0074c7; /* Couleur au survol du bouton */
-        }
+    .logo img.logo-mobile {
+        display: block; /* Affiche le favicon */
+    }
+
+    .search-form {
+        margin-left: 10px; /* Ajuster l'espace pour le champ de recherche */
+    }
+
+    .menu-toggler {
+        display: block; /* Affiche le bouton hamburger */
+    }
+
+    .search-form input {
+        width: 100px; /* Largeur de la barre de recherche sur mobile */
+    }
+
+    .navbar.open {
+        display: flex !important; /* Affiche le menu quand ouvert */
+        flex-direction: column !important; /* Affiche les items en colonne */
+        position: absolute; /* Positionnement absolu pour ne pas perturber le layout */
+        top: 60px; /* Ajustez selon la hauteur de votre header */
+        left: 0;
+        width: 100%;
+        background-color: #00497c; /* Couleur de fond du menu */
+        z-index: 1000; /* Pour que le menu soit au-dessus d'autres éléments */
+    }
+}
+
+
+/* Styles pour les tablettes et desktop */
+@media (min-width: 769px) {
+    .navbar {
+        display: flex; /* Assurez-vous que le menu est visible */
+        flex-direction: row; /* Alignement horizontal */
+        justify-content: center; /* Centrer les éléments du menu */
+    }
+
+    .navbar-collapse {
+        display: flex; /* Affiche les éléments dans la navbar */
+    }
+
+    .logo img.logo-desktop {
+        display: block; /* Affiche le logo normal */
+    }
+
+    .logo img.logo-mobile {
+        display: none; /* Assurez-vous que le logo mobile est caché sur desktop */
+    }
+
+    .search-form input {
+        width: 250px; /* Ajustez pour une meilleure expérience utilisateur */
     }
 }

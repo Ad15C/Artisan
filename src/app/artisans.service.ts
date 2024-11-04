@@ -242,9 +242,13 @@ getArtisans(): (Artisan & { image: string })[] {
 /* Retorne les trois artisans ayant la meilleure note et étant notés comme top*/
 getTop3Artisans(): Artisan[] {
 	return this.artisans
-		.filter(artisan => artisan.top)
-		.sort((a, b) => b.note - a.note)
-		.slice(0, 3);
+        .filter(artisan => artisan.top)
+        .sort((a, b) => b.note - a.note)
+        .slice(0, 3)
+        .map(artisan => {
+            const image = this.categoryImages[artisan.category as Category] || "assets/favicons/favicon-32.png";
+            return { ...artisan, image }; // Ajoute l'image à l'artisan
+        });
 }
 /* Retourne les noms des catégories */
 getCategoryNames(): string[] {

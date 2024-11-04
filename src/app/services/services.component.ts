@@ -5,7 +5,7 @@ import { Artisan } from '../artisan.model';
 @Component({
   selector: 'app-services',
   templateUrl: './services.component.html',
-  styleUrl: './services.component.scss'
+  styleUrls: ['./services.component.scss']
 })
 export class ServicesComponent implements OnInit  {
   artisans: Artisan[] = [];

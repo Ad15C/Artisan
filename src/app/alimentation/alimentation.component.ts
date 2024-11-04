@@ -5,7 +5,7 @@ import { ArtisansService } from '../artisans.service';
 @Component({
   selector: 'app-alimentation',
   templateUrl: './alimentation.component.html',
-  styleUrl: './alimentation.component.scss'
+  styleUrls: ['./alimentation.component.scss']
 })
 export class AlimentationComponent implements OnInit  {
   artisans: Artisan[] = [];
