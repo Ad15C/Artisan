@@ -62,26 +62,35 @@ hr {
     border: 0; /* Enlève la bordure par défaut */
     height: 1px; /* Définit la hauteur de la ligne */
     background-color: #f1f8fc;
-    margin: 20px 0; /* Espace au-dessus et en dessous de la ligne */
+    margin: 10px 0; /* Espace au-dessus et en dessous de la ligne */
 }
 
 /* Media Queries */
 @media (max-width: 768px) {
     .footer {
-        padding: 10px; /* Reduce padding on mobile */
+        padding: 10px; /* Réduire le padding sur mobile */
     }
 
     .content {
-        flex-direction: column; /* Stack items vertically */
-        align-items: flex-start; /* Align to the left */
+        flex-direction: column; /* Empiler les éléments verticalement */
+        align-items: center; /* Centrer horizontalement */
         padding-bottom: 10px;
     }
 
+    .adresse, .phone, .horaires {
+        text-align: center; /* Centrer le texte */
+        width: 100%; /* Prendre la largeur complète pour éviter le décalage */
+        display: flex; /* Utiliser flex pour aligner le contenu */
+        flex-direction: column; /* Empiler le contenu verticalement */
+        align-items: center; /* Centrer le contenu */
+    }
+
     .footer-link {
-        margin: 5px 0; /* Reduce margins on mobile */
-        text-align: center; /* Center links */
+        margin: 5px 0; /* Réduire les marges sur mobile */
+        text-align: center; /* Centrer les liens */
     }
 }
+
 
 @media (min-width: 769px) {
     .content {

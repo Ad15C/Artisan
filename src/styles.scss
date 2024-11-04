@@ -1,63 +1,59 @@
-@font-face {
+@font-face { 
     font-family: 'Graphik';
     src: url('assets/fonts/Graphik-Thin-Trial.woff2') format('woff2'),
-        url('assets/fonts/Graphik-Thin-Trial.otf') format('opentype');
-    font-weight: 100; // Thin
+         url('assets/fonts/Graphik-Thin-Trial.otf') format('opentype');
+    font-weight: 100;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Graphik';
     src: url('assets/fonts/Graphik-Light-Trial.woff2') format('woff2'),
-        url('assets/fonts/Graphik-Light-Trial.otf') format('opentype');
-    font-weight: 300; // Light
+         url('assets/fonts/Graphik-Light-Trial.otf') format('opentype');
+    font-weight: 300; 
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Graphik';
     src: url('assets/fonts/Graphik-Regular-Trial.woff2') format('woff2');
-    font-weight: 400; // Regular
+    font-weight: 400; 
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Graphik';
     src: url('assets/fonts/Graphik-Medium-Trial.woff2') format('woff2'),
-        url('assets/fonts/Graphik-Medium-Trial.otf') format('opentype');
-    font-weight: 500; // Medium
+         url('assets/fonts/Graphik-Medium-Trial.otf') format('opentype');
+    font-weight: 500;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Graphik';
     src: url('assets/fonts/Graphik-Semibold-Trial.woff2') format('woff2'),
-        url('assets/fonts/Graphik-Semibold-Trial.otf') format('opentype');
-    font-weight: 600; // Semibold
+         url('assets/fonts/Graphik-Semibold-Trial.otf') format('opentype');
+    font-weight: 600;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Graphik';
     src: url('assets/fonts/Graphik-Bold-Trial.woff2') format('woff2'),
-        url('assets/fonts/Graphik-Bold-Trial.otf') format('opentype');
-    font-weight: 700; // Bold
+         url('assets/fonts/Graphik-Bold-Trial.otf') format('opentype');
+    font-weight: 700; 
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Graphik';
     src: url('assets/fonts/Graphik-Extralight-Trial.woff2') format('woff2'),
-        url('assets/fonts/Graphik-Extralight-Trial.otf') format('opentype');
-    font-weight: 200; // Extralight
+         url('assets/fonts/Graphik-Extralight-Trial.otf') format('opentype');
+    font-weight: 200;
     font-style: normal;
 }
-
 
 body {
     font-family: 'Graphik', sans-serif;
     font-weight: 400;
 }
-
-
-

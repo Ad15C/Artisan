@@ -5,7 +5,7 @@ import { ArtisansService } from '../artisans.service';
 @Component({
   selector: 'app-fabrication',
   templateUrl: './fabrication.component.html',
-  styleUrl: './fabrication.component.scss'
+  styleUrls: ['./fabrication.component.scss']
 })
 export class FabricationComponent {
   artisans: Artisan[] = [];

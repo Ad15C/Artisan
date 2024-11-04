@@ -1,44 +1,39 @@
-<header class="header">
-    <div class="container d-flex align-items-center justify-content-between">
+<header class="container">
+    <div class="logo">
         <a class="logo" routerLink="/">
-            <img *ngIf="!isMobileOrTablet" src="assets/Logo/Logo.png" alt="Logo Trouver ton artisan" class="logo-desktop">
-            <img *ngIf="isMobileOrTablet" src="assets/favicons/favicon-32.png" alt="Logo Trouver ton artisan" class="logo-mobile">
+            <img *ngIf="!isMobile" src="assets/Logo/logo_artisan.png" alt="Logo Trouver ton artisan" class="logo-desktop">
+            <img *ngIf="isMobile" src="assets/favicons/favicon-32.png" alt="Logo Trouver ton artisan" class="logo-mobile">
         </a>
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <button 
-                    *ngIf="isMobileOrTablet" 
-                    class="navbar-toggler" 
-                    type="button" 
-                    (click)="toggleNavbar()" 
-                    aria-controls="navbarNav" 
-                    aria-expanded="isNavbarOpen" 
-                    aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-              </div>
-              <div id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="link" routerLink="/batiment">Bâtiment</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="link" routerLink="/services">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="link" routerLink="/fabrication">Fabrication</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="link" routerLink="/alimentation">Alimentation</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        
+    </div>
+
+    <nav class="navbar" [ngClass]="{'open': isNavbarOpen}">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="link" routerLink="/batiment">Bâtiment</a>
+            </li>
+            <li class="nav-item">
+                <a class="link" routerLink="/services">Services</a>
+            </li>
+            <li class="nav-item">
+                <a class="link" routerLink="/fabrication">Fabrication</a>
+            </li>
+            <li class="nav-item">
+                <a class="link" routerLink="/alimentation">Alimentation</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="search-form">
         <form (ngSubmit)="onSearch()">
-            <input [(ngModel)]="searchTerm" placeholder="Rechercher un artisan..." name="search" required />
+            <input [(ngModel)]="searchTerm" placeholder="Rechercher un artisan..." [class.small]="isMobile" name="search" required />
             <button type="submit">Rechercher</button>
         </form>
-        
     </div>
+
+    <div class="menu-toggler" *ngIf="isMobile">
+        <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+
 </header>
