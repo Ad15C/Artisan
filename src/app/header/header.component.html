@@ -25,8 +25,14 @@
 
     <div class="search-form">
         <form (ngSubmit)="onSearch()">
-            <input [(ngModel)]="searchTerm" placeholder="Rechercher un artisan..." [class.small]="isMobile" name="search" required />
-            <button type="submit">Rechercher</button>
+            <input 
+            placeholder="Recherchez par ville, nom ou profession..." 
+            name="search" 
+            required 
+            [(ngModel)]="searchTerm" 
+            class="ng-pristine ng-touched ng-invalid">
+            <button type="submit" [disabled]="!searchTerm">Rechercher</button>
+
         </form>
     </div>
 

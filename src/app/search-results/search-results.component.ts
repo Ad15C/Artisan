@@ -22,7 +22,12 @@ export class SearchResultsComponent implements OnInit {
       return term
           .toLowerCase()
           /* Ajoute d'autres remplacements si nécessaire */
-          .replace('bâtiment', 'batiment'); 
+          .replace('bâtiment', 'batiment')
+          .replace('é', 'e')
+          .replace('è', 'e')
+          .replace('à', 'a')
+          .replace('ç', 'c')
+          .replace('ù', 'u');
   }
   
 
@@ -31,10 +36,11 @@ export class SearchResultsComponent implements OnInit {
       
           this.filteredArtisans = this.artisans.filter(artisan => {
               const nameMatches = normalizeTerm(artisan.name).includes(searchTerm);
-              const specialtyMatches = normalizeTerm(artisan.specialty).includes(searchTerm);
+              const locationMatches = normalizeTerm(artisan.location).includes(searchTerm);
               const categoryMatches = normalizeTerm(artisan.category).includes(searchTerm);
+              const specialtyMatches = normalizeTerm(artisan.specialty).includes(searchTerm);
       
-              return nameMatches || specialtyMatches || categoryMatches;
+              return nameMatches || locationMatches || categoryMatches || specialtyMatches;
        });
     });
   }
