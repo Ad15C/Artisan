@@ -16,9 +16,8 @@ export class HomeComponent implements OnInit {
   constructor(private artisansService: ArtisansService) {}
 
   ngOnInit() {
-    this.artisans = this.artisansService.getArtisans(); // Récupérer les artisans avec les images
-    this.topArtisans = this.artisansService.getTop3Artisans(); // Récupérer les 3 meilleurs artisans
-    console.log(this.topArtisans);
+    this.artisans = this.artisansService.getArtisans(); /* Récupérer les artisans avec les images */
+    this.topArtisans = this.artisansService.getTop3Artisans(); /* Récupérer les 3 meilleurs artisans */
   }
   formatArtisanName(name: string): string {
     return name.toLowerCase().replace(/\s+/g, '-');

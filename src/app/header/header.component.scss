@@ -17,7 +17,7 @@
 
     img.logo-mobile {
         display: none; /* Cacher le logo mobile par défaut */
-        max-height: 100%; /* Assurez-vous qu'il s'adapte à la hauteur du header */
+        max-height: 100%; /* Il s'adapte à la hauteur du header */
     }
 }
 
@@ -29,13 +29,13 @@
     justify-content: center; /* Centre le menu horizontalement */
 
     &.open {
-        display: flex; /* Assurez-vous que le menu s'affiche quand ouvert */
-        flex-direction: column; /* Menu en colonne pour mobile */
-        position: absolute; /* Positionnement absolu */
-        top: 60px; /* Ajustez selon la hauteur de votre header */
+        display: flex; 
+        flex-direction: column; 
+        position: absolute; 
+        top: 60px; 
         left: 0;
         width: 100%;
-        background-color: #00497c; /* Couleur de fond du menu */
+        background-color: #00497c; 
         z-index: 1000; /* Pour que le menu soit au-dessus d'autres éléments */
     }
 }
@@ -147,10 +147,10 @@
         display: flex !important; /* Affiche le menu quand ouvert */
         flex-direction: column !important; /* Affiche les items en colonne */
         position: absolute; /* Positionnement absolu pour ne pas perturber le layout */
-        top: 60px; /* Ajustez selon la hauteur de votre header */
+        top: 60px; 
         left: 0;
         width: 100%;
-        background-color: #00497c; /* Couleur de fond du menu */
+        background-color: #00497c; 
         z-index: 1000; /* Pour que le menu soit au-dessus d'autres éléments */
     }
 }
@@ -159,9 +159,9 @@
 /* Styles pour les tablettes et desktop */
 @media (min-width: 769px) {
     .navbar {
-        display: flex; /* Assurez-vous que le menu est visible */
-        flex-direction: row; /* Alignement horizontal */
-        justify-content: center; /* Centrer les éléments du menu */
+        display: flex; 
+        flex-direction: row; 
+        justify-content: center; 
     }
 
     .navbar-collapse {
@@ -173,10 +173,10 @@
     }
 
     .logo img.logo-mobile {
-        display: none; /* Assurez-vous que le logo mobile est caché sur desktop */
+        display: none; 
     }
 
     .search-form input {
-        width: 250px; /* Ajustez pour une meilleure expérience utilisateur */
+        width: 250px; 
     }
 }

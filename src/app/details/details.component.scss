@@ -114,7 +114,7 @@ main {
   padding: 10px;
 }
 
-/* Mobile styles (default) */
+/* Mobile  (default) */
 .send-button {
   width: 80%; /* Wide on mobile */
   margin: 0 auto;
@@ -123,8 +123,8 @@ main {
 /* Sur tablette (min-width: 768px), on passe à une disposition en ligne avec les éléments répartis */
 @media (min-width: 768px) {
   .detail-list {
-    flex-direction: row; /* Disposition en ligne pour les tablettes */
-    justify-content: space-between; /* Aligner les éléments horizontalement avec un espacement */
+    flex-direction: row; 
+    justify-content: space-between; 
   }
 
   .detail-item {
@@ -139,8 +139,8 @@ main {
 /* Sur desktop (min-width: 992px), les éléments prennent 30% de la largeur pour que trois éléments soient affichés sur une ligne */
 @media (min-width: 992px) {
   .detail-list {
-    flex-direction: row; /* Toujours en ligne sur desktop */
-    justify-content: space-between; /* Espacement égal entre les items */
+    flex-direction: row; 
+    justify-content: space-between; 
   }
 
   .detail-item {

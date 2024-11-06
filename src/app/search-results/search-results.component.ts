@@ -13,35 +13,42 @@ export class SearchResultsComponent implements OnInit {
   filteredArtisans: Artisan[] = [];
   category: string = '';
 
-  constructor(private artisansService: ArtisansService, private route: ActivatedRoute) { }
+  constructor(
+    private artisansService: ArtisansService,
+    private route: ActivatedRoute) { }
 
-  ngOnInit(): void {
-    this.artisans = this.artisansService.getArtisans();
-
-    function normalizeTerm(term: string): string {
-      return term
-          .toLowerCase()
-          /* Ajoute d'autres remplacements si nécessaire */
-          .replace('bâtiment', 'batiment')
-          .replace('é', 'e')
-          .replace('è', 'e')
-          .replace('à', 'a')
-          .replace('ç', 'c')
-          .replace('ù', 'u');
-  }
+    ngOnInit(): void {
+      /* Récupére tous les artisans */
+      this.artisans = this.artisansService.getArtisans();
   
-
+      /* Définition de la méthode normalizeTerm */
+      const normalizeTerm = (term: string): string => {
+        return term.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, ''); /* Normaliser le terme pour la recherche */
+      };
+  
+      /* Définition de la méthode formatArtisanName */
+      this.formatArtisanName = (name: string): string => {
+        return name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, ''); /* Formater le nom pour les URL */
+      };
+  
+      /* Récupérer les paramètres de la route et filtrer les artisans en fonction du terme de recherche */
       this.route.queryParams.subscribe(params => {
-          const searchTerm = params['term'] ? normalizeTerm(params['term']) : '';
-      
-          this.filteredArtisans = this.artisans.filter(artisan => {
-              const nameMatches = normalizeTerm(artisan.name).includes(searchTerm);
-              const locationMatches = normalizeTerm(artisan.location).includes(searchTerm);
-              const categoryMatches = normalizeTerm(artisan.category).includes(searchTerm);
-              const specialtyMatches = normalizeTerm(artisan.specialty).includes(searchTerm);
-      
-              return nameMatches || locationMatches || categoryMatches || specialtyMatches;
-       });
-    });
+        const searchTerm = params['term'] ? normalizeTerm(params['term']) : '';
+  
+        /* Filtre les artisans en fonction du terme de recherche */
+        this.filteredArtisans = this.artisans.filter(artisan => {
+          const nameMatches = normalizeTerm(artisan.name).includes(searchTerm);
+          const locationMatches = normalizeTerm(artisan.location).includes(searchTerm);
+          const categoryMatches = normalizeTerm(artisan.category).includes(searchTerm);
+          const specialtyMatches = normalizeTerm(artisan.specialty).includes(searchTerm);
+  
+          return nameMatches || locationMatches || categoryMatches || specialtyMatches;
+        });
+      });
+    }
+  
+    /* Méthode formatArtisanName déjà définie plus haut */
+    formatArtisanName(name: string): string {
+      return name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, ''); /* Formater le nom pour les URL */
+    }
   }
-}  

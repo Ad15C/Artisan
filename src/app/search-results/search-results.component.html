@@ -4,7 +4,9 @@
             <li *ngFor="let artisan of filteredArtisans" class="artisan-card">
                 <img [src]="artisan.image" alt="{{ artisan.specialty }}" />
                 <hr>
-                <strong>{{ artisan.name }}</strong>
+                <a [routerLink]="['/artisan', formatArtisanName(artisan.name)]">
+                    {{ artisan.name }}
+                  </a>
                 <hr>
                 <div><u>Spécialité:</u> {{ artisan.specialty }}</div>
                 <div><u>Localisation:</u> {{ artisan.location }}</div>
