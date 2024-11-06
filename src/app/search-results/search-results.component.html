@@ -1,7 +1,5 @@
 <main>
-    <h2>Résultats de recherche</h2>
-
-    <div *ngIf="filteredArtisans.length > 0; else noResults">
+     <div *ngIf="filteredArtisans.length > 0; else noResults">
         <ul class="artisan-list">
             <li *ngFor="let artisan of filteredArtisans" class="artisan-card">
                 <img [src]="artisan.image" alt="{{ artisan.specialty }}" />
