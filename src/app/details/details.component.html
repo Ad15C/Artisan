@@ -1,89 +1,91 @@
 <main>
-  <div class="row justify-content-center">
-    <div class="col-md-4 text-center">
-      <div *ngIf="artisan">
-        <h1 class="artisan-name"> {{details?.name}}</h1>
-        <ul class="detail-list">
-          <li class="detail-item">
-            <img src="assets/favicons/specialite-bleu.png" alt="Favicon représentant le métier"/>
-                <p><strong>Spécialité:</strong> {{ details?.specialty }} </p>
-          </li>
-          <li class="detail-item">
-            <img src="assets/favicons/endroit.png" alt="favicon de l'adresse">
-              <p><strong>Localisation:</strong> {{ details?.location }} </p>
-          </li>
-          <li class="detail-item">
-            <img src="assets/favicons/note.png" alt="favicon de l'étoile pour la note">
-              <p><strong>Note:</strong> {{ details?.note }} sur 5</p>
-          </li>
-        </ul>
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-md-4 text-center">
+        <div *ngIf="artisan">
+          <h1 class="artisan-name"> {{details?.name}}</h1>
+          <ul class="detail-line">
+            <li class="detail-item">
+              <img src="assets/favicons/specialite-bleu.png" alt="Favicon représentant le métier"/>
+                  <p><strong>Spécialité:</strong> {{ details?.specialty }} </p>
+            </li>
+            <li class="detail-item">
+              <img src="assets/favicons/endroit.png" alt="favicon de l'adresse">
+                <p><strong>Localisation:</strong> {{ details?.location }} </p>
+            </li>
+            <li class="detail-item">
+              <img src="assets/favicons/note.png" alt="favicon de l'étoile pour la note">
+                <p><strong>Note:</strong> {{ details?.note }} sur 5</p>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-      
-    <div class="col-md-8">
-      <div class="accordion" id="accordionExample">
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingOne">
-            A Propos
-            <button class="accordion-button" type="button" (click)="toggleAccordion(1)" [ngClass]="{'collapsed': activeAccordion !== 1}">
-              <img src="assets/favicons/ouvrir.png" alt="Favicon ouvertur du menu accordéon">
-            </button>
-          </h2>
-          <div class="accordion-collapse collapse" [class.show]="activeAccordion === 1" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-              {{ details?.about }}
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingTwo">      Nos Informations
-            <button class="accordion-button" type="button" (click)="toggleAccordion(2)" [ngClass]="{'collapsed': activeAccordion !== 2}">
-              <img src="assets/favicons/ouvrir.png" alt="Favicon ouvertur du menu accordéon">
-            </button>
-          </h2>
-          <div class="accordion-collapse collapse" [class.show]="activeAccordion === 2" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-              <p *ngIf="details?.email"><strong>Email: </strong> 
-                <a [href]="'mailto:' + details?.email">{{ details?.email }}</a>
-              </p>
-              <p *ngIf="details?.website"><strong>Site Web: </strong> <a [href]="details?.website">{{ details?.website }}</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingThree"> Formulaire De Contact
-            <button class="accordion-button" type="button" (click)="toggleAccordion(3)" [ngClass]="{'collapsed': activeAccordion !== 3}">
-              <img src="assets/favicons/ouvrir.png" alt="Favicon ouvertur du menu accordéon">
-            </button>
-          </h2>
-          <div class="accordion-collapse collapse" [class.show]="activeAccordion === 3" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-              <div *ngIf="confirmationMessage" class="alert alert-success" role="alert">
-                {{ confirmationMessage }}
+        
+      <div class="col-md-8">
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              A Propos
+              <button class="accordion-button" type="button" (click)="toggleAccordion(1)" [ngClass]="{'collapsed': activeAccordion !== 1}">
+                <img src="assets/favicons/ouvrir.png" alt="Favicon ouvertur du menu accordéon">
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" [class.show]="activeAccordion === 1" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                {{ details?.about }}
               </div>
-              <form [formGroup]="contactForm" (ngSubmit)="sendEmail()">
-                <div class="mb-3">
-                  <input type="text" class="form-control" formControlName="name" placeholder="Nom" required>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">      Nos Informations
+              <button class="accordion-button" type="button" (click)="toggleAccordion(2)" [ngClass]="{'collapsed': activeAccordion !== 2}">
+                <img src="assets/favicons/ouvrir.png" alt="Favicon ouvertur du menu accordéon">
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" [class.show]="activeAccordion === 2" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <p *ngIf="details?.email"><strong>Email: </strong> 
+                  <a [href]="'mailto:' + details?.email">{{ details?.email }}</a>
+                </p>
+                <p *ngIf="details?.website"><strong>Site Web: </strong> <a [href]="details?.website">{{ details?.website }}</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree"> Formulaire De Contact
+              <button class="accordion-button" type="button" (click)="toggleAccordion(3)" [ngClass]="{'collapsed': activeAccordion !== 3}">
+                <img src="assets/favicons/ouvrir.png" alt="Favicon ouvertur du menu accordéon">
+              </button>
+            </h2>
+            <div class="accordion-collapse collapse" [class.show]="activeAccordion === 3" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <div *ngIf="confirmationMessage" class="alert alert-success" role="alert">
+                  {{ confirmationMessage }}
                 </div>
-                <div class="mb-3">
-                  <input type="text" class="form-control" formControlName="firstName" placeholder="Prénom" required>
-                </div>
-                <div class="mb-3">
-                  <input type="text" class="form-control" formControlName="object" placeholder="Objet de votre demande" required>
-                </div>
-                <div class="mb-3">
-                  <textarea class="form-control" formControlName="message" rows="3" placeholder="Message" required></textarea>
-                </div>
-                <div class="col-auto text-center"> 
-                  <button type="submit" class="btn btn-primary mb-3">Envoyer votre demande</button>
-                </div>
-              </form>          
+                <form [formGroup]="contactForm" (ngSubmit)="sendEmail()">
+                  <div class="mb-3">
+                    <input type="text" class="form-control" formControlName="name" placeholder="Nom" required>
+                  </div>
+                  <div class="mb-3">
+                    <input type="text" class="form-control" formControlName="firstName" placeholder="Prénom" required>
+                  </div>
+                  <div class="mb-3">
+                    <input type="text" class="form-control" formControlName="object" placeholder="Objet de votre demande" required>
+                  </div>
+                  <div class="mb-3">
+                    <textarea class="form-control" formControlName="message" rows="3" placeholder="Message" required></textarea>
+                  </div>
+                  <div class="col-auto text-center"> 
+                    <button type="submit" class="btn btn-primary mb-3">Envoyer votre demande</button>
+                  </div>
+                </form>          
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>      
+    </div> 
+  </div>     
 </main>
  
 
