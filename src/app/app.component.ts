@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
 
   constructor(
     private artisansService: ArtisansService,
-    private router: Router // Injection du Router
+    private router: Router /* Injection du Router */
   ) { } 
 
   ngOnInit() {

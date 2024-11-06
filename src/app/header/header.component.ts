@@ -11,9 +11,9 @@ import { ActivatedRoute } from '@angular/router';
 export class HeaderComponent {
   isNavbarOpen: boolean = false;
   isMobile: boolean = false;
-  searchTerm: string = ''; /*le terme de recherche */
-  searchType: string = 'name'; /*la valeur par défaut de recherche */
-  results: any [] = []; /*les résultats de la recherche */
+  searchTerm: string = ''; /* Le terme de recherche */
+  searchType: string = 'name'; /* La valeur par défaut de recherche */
+  results: any [] = []; /* Les résultats de la recherche */
 
   @Output() searchChanged = new EventEmitter<{ term: string, type: string }>();
 
@@ -28,11 +28,11 @@ export class HeaderComponent {
   /* Barre de recherche : OnClick du bouton de recherche */
   onSearch(): void {
     if (!this.searchTerm) {
-      /*Ne rien faire si le champs est vide */
+      /* Ne rien faire si le champs est vide */
       return; 
     }
     
-    /*Rediriger avec le terme de recherche et le type de recherche */
+    /* Rediriger avec le terme de recherche et le type de recherche */
     this.router.navigate(['/search-results'], {
       queryParams: { term: this.searchTerm, type: this.searchType }
     });

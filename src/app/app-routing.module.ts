@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'alimentation', component: AlimentationComponent },
   { path: 'fabrication', component: FabricationComponent },
   { path: 'artisan/:name', component: DetailsComponent },
-  {path:'pagenotfound', component: PagenotfoundComponent },
+  {path:'pagenotfound', component: PagenotfoundComponent }, /* Page 404 non trouvée*/
   {path:'**', component: PagenotfoundComponent } /*Route non trouvée */
   
 ];
