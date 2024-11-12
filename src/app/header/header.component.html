@@ -26,18 +26,22 @@
     <div class="search-form">
         <form (ngSubmit)="onSearch()">
             <input 
-            placeholder="Recherchez par ville, nom ou profession..." 
-            name="search" 
-            required 
-            [(ngModel)]="searchTerm" 
-            class="ng-pristine ng-touched ng-invalid">
-            <button type="submit" [disabled]="!searchTerm">Rechercher</button>
-
+                placeholder="Recherchez par ville, nom, profession" 
+                name="search" 
+                required 
+                [(ngModel)]="searchTerm" 
+                aria-label="Barre de recherche">
+            <button type="submit" [disabled]="!searchTerm" aria-label="Soumettre la recherche">
+                <span class="button-text">Rechercher</span>
+                <span class="button-icon">
+                    <img src="/assets/favicons/Loupe.png" alt="Icône représentant une loupe pour effectuer une recherche sur le site">
+                </span>
+            </button>
         </form>
     </div>
 
     <div class="menu-toggler" *ngIf="isMobile">
-        <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
+        <button class="navbar-toggler" type="button" (click)="toggleNavbar()"  aria-label="Menu">
             <span class="navbar-toggler-icon"></span>
         </button>
     </div>
