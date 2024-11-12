@@ -21,12 +21,14 @@
     }
 }
 
+/* Menu */
 .navbar {
     display: flex;
     align-items: center; 
     background-color: #00497c;
     flex-grow: 1;
     justify-content: center; /* Centre le menu horizontalement */
+    position: relative;
 
     &.open {
         display: flex; 
@@ -65,8 +67,9 @@
     }
 }
 
+/* Menu Burger*/
 .navbar-toggler-icon {
-    width: 30px; /* Largeur de l'icône */
+    width: 30px; 
     height: 3px; /* Épaisseur des traits */
     background-color: #0074c7; /* Couleur des traits */
     display: block;
@@ -91,28 +94,49 @@
     }
 }
 
+/* Barre de Recherche*/
 .search-form {
     display: flex;
     align-items: center; 
+    justify-content: space-between;
+    width: 100%;
 
     form {
         display: flex;
-        align-items: center; 
+        flex-direction: row; 
+        align-items: center;
+        width: auto; 
         margin-left: 30px; 
         
         input {
-            width: 300px; 
+            width: 200px; /* Taille plus petite en mode tablette */
             max-width: 100%; /* S'adapte à l'espace disponible */
             margin-right: 10px; /* Espace entre l'input et le bouton */
+            transition: width 0.3s ease;
         }
 
         button {
-            padding: 10px 15px; 
-            background-color: #00497c; 
-            color: #f1f8fc; 
-            border: none; 
-            border-radius: 5px; 
-            cursor: pointer; /* Curseur en forme de main */
+            padding: 10px 15px;
+            background-color: #00497c;
+            color: #f1f8fc;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 40px;  /* Adapte la taille minimale du bouton */
+            height: auto;
+
+            button .button-text {
+                display: inline-block; /* Affichage par défaut sur desktop */
+                font-size: 16px;
+            }
+
+            button .button-icon {
+                display: none; /* Masquer l'icône par défaut */
+                font-size: 20px;
+            }
             
             &:hover {
                 background-color: #0074c7; /* Couleur au survol du bouton */
@@ -121,7 +145,7 @@
     }
 }
 
-/* Mobile Styles */
+/* Mobile */
 @media (max-width: 768px) {
     .navbar {
         display: none; /* Cache le menu par défaut */
@@ -129,18 +153,40 @@
 
     .logo img.logo-mobile {
         display: block; /* Affiche le favicon */
-    }
-
-    .search-form {
-        margin-left: 10px; /* Ajuster l'espace pour le champ de recherche */
+        max-height: 40px; 
     }
 
     .menu-toggler {
         display: block; /* Affiche le bouton hamburger */
+        z-index: 1001; /* Assure que le menu burger soit au-dessus des autres éléments */
+        margin-right: 10px;       
+    }
+
+    .search-form {
+        display: flex; 
+        flex-direction: row; 
+        align-items: center; /* Aligne l'input et le bouton verticalement */
+        margin-top: 10px; /* Espacement entre le logo et la barre de recherche */
+        width: 100%;
+    }
+
+    .search-form button {
+        min-width: 40px;  /* Pour correspondre à la taille de l'icône */
+        height: 40px; /* Hauteur équivalente à l'icône */
+        padding: 5px;  /* Ajuste l'espace autour de l'icône */
     }
 
     .search-form input {
-        width: 100px; /* Largeur de la barre de recherche sur mobile */
+        width: 100%; 
+        margin-bottom: 10px; /* Espace entre l'input et le bouton */
+    }
+
+    .search-form button .button-text {
+        display: none; /* Masquer le texte sur mobile et tablette */
+    }
+
+    .search-form button .button-icon {
+        display: inline-block; /* Afficher l'icône sur mobile et tablette */
     }
 
     .navbar.open {
@@ -152,20 +198,78 @@
         width: 100%;
         background-color: #00497c; 
         z-index: 1000; /* Pour que le menu soit au-dessus d'autres éléments */
+        margin-top: 80px;
+    }
+
+    .navbar-nav {
+        flex-direction: column; /* Menu vertical */
+        margin-top: 10px; /* Ajoute un peu d'espace entre les éléments du menu */
+    }
+
+    .nav-item {
+        margin: 10px 0; /* Espacement vertical dans le menu burger */
     }
 }
 
 
-/* Styles pour les tablettes et desktop */
-@media (min-width: 769px) {
-    .navbar {
-        display: flex; 
-        flex-direction: row; 
-        justify-content: center; 
+/* Styles pour les tablettes et petit écrans */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
     }
 
-    .navbar-collapse {
-        display: flex; /* Affiche les éléments dans la navbar */
+    .logo img.logo-mobile {
+        display: none; /* Cacher le logo mobile sur tablette */
+    }
+
+    .logo img.logo-desktop {
+        display: block; /* Afficher le logo desktop sur tablette */
+    }
+
+    .search-form {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: auto;
+    }
+
+    .search-form button {
+        min-width: 40px;  /* Pour correspondre à la taille de l'icône */
+        height: 40px; /* Hauteur équivalente à l'icône */
+        padding: 5px;  /* Ajuste l'espace autour de l'icône */
+    }
+
+    .search-form input {
+        width: 200px;
+        margin-right: 10px;
+    }
+
+    .search-form button .button-text {
+        display: none; /* Masquer le texte sur mobile et tablette */
+    }
+
+    .search-form button .button-icon {
+        display: inline-block; /* Afficher l'icône sur mobile et tablette */
+    }
+
+    .navbar {
+        display: none; 
+    }
+
+    .menu-toggler {
+        display: block; /* Affiche le bouton hamburger */
+        z-index: 1001;
+    }
+}
+
+/* Styles pour les grands écrans (desktop) */
+@media (min-width: 1025px) {
+    .navbar {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
     }
 
     .logo img.logo-desktop {
@@ -177,6 +281,23 @@
     }
 
     .search-form input {
-        width: 250px; 
+        width: 250px; /* Taille d'input standard pour desktop */
+    }
+
+    .menu-toggler {
+        display: none; /* Cache le menu burger sur desktop */
+    }
+
+    .search-form button {
+        min-width: 120px;  /* Largeur plus grande pour le texte */
+        height: 40px;
+    }
+
+    .search-form button .button-text {
+        display: inline-block; /* Afficher le texte sur desktop */
+    }
+
+    .search-form button .button-icon {
+        display: none; /* Masquer l'icône sur desktop */
     }
 }
