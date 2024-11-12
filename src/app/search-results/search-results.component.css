@@ -1,0 +1,80 @@
+@charset "UTF-8";
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 60px;
+  margin-bottom: 20px;
+  padding: 0 20px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+hr {
+  background-color: #0047c7;
+  height: 2px;
+  border: none;
+}
+
+.artisan-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Aligner à gauche */
+  margin-top: 20px; /* Espace au-dessus de la liste */
+  padding: 0; /* Retire le padding pour un meilleur alignement */
+  list-style-type: none;
+  gap: 20px; /* espace entre les cartes*/
+}
+
+.artisan-card {
+  border: 1px solid #f1f8fc;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 10px;
+  width: 200px; /* Largeur des cartes */
+  text-align: center;
+  box-shadow: 0 2px 5px #384050;
+  background-color: #f1f8fc;
+  flex: 0 1 auto; /* Assure que les cartes gardent leur largeur */
+}
+
+.artisan-card img {
+  max-width: 100%;
+  border-radius: 8px;
+  height: 32px; /* Hauteur fixe pour l'image */
+  -o-object-fit: cover;
+     object-fit: cover; /* Assure que l'image garde son ratio sans déformation */
+}
+
+@media (max-width: 768px) {
+  .artisan-list {
+    justify-content: center; /* Centrer les cartes sur petit écran */
+    flex-direction: row; /* S'assurer que les cartes restent en ligne même sur mobile */
+  }
+  .artisan-card {
+    width: 150px; /* Réduire la largeur des cartes sur mobile */
+  }
+}
+@media (max-width: 480px) {
+  main {
+    padding: 0 10px; /* Moins de padding pour les petits écrans */
+  }
+  .artisan-list {
+    flex-direction: column; /* Affichage en colonne pour les petits écrans */
+    align-items: center; /* Centrer les éléments */
+  }
+  .artisan-card {
+    width: 100%; /* Occupation de toute la largeur sur mobile */
+    margin-bottom: 20px; /* Espace entre les cartes */
+  }
+}
+@media (min-width: 1024px) {
+  .artisan-list {
+    justify-content: flex-start; /* Aligner les cartes à gauche sur desktop */
+  }
+  .artisan-card {
+    width: 250px; /* Augmenter la taille des cartes sur desktop */
+  }
+}/*# sourceMappingURL=search-results.component.css.map */

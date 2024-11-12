@@ -1,0 +1,260 @@
+@charset "UTF-8";
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logo img.logo-desktop {
+  max-height: 180px;
+}
+.logo img.logo-mobile {
+  display: none; /* Cacher le logo mobile par défaut */
+  max-height: 100%; /* Il s'adapte à la hauteur du header */
+}
+
+/* Menu */
+.navbar {
+  display: flex;
+  align-items: center;
+  background-color: #00497c;
+  flex-grow: 1;
+  justify-content: center; /* Centre le menu horizontalement */
+  position: relative;
+}
+.navbar.open {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  background-color: #00497c;
+  z-index: 1000; /* Pour que le menu soit au-dessus d'autres éléments */
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row; /* Pour le desktop */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-item {
+  margin: 0 25px; /* Espace entre les sections */
+}
+.nav-item .link {
+  color: #f1f8fc; /* Couleur des liens */
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+.nav-item .link:hover {
+  background-color: #0074c7; /* Couleur de fond au survol */
+  border-radius: 5px;
+}
+
+/* Menu Burger*/
+.navbar-toggler-icon {
+  width: 30px;
+  height: 3px; /* Épaisseur des traits */
+  background-color: #0074c7; /* Couleur des traits */
+  display: block;
+  position: relative;
+}
+.navbar-toggler-icon:before, .navbar-toggler-icon:after {
+  content: "";
+  width: 30px;
+  height: 3px;
+  background-color: #0074c7; /* Couleur des traits */
+  position: absolute;
+  left: 0;
+}
+.navbar-toggler-icon:before {
+  top: -8px; /* Position du trait du dessus */
+}
+.navbar-toggler-icon:after {
+  top: 8px; /* Position du trait du dessous */
+}
+
+/* Barre de Recherche*/
+.search-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.search-form form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: auto;
+  margin-left: 30px;
+}
+.search-form form input {
+  width: 200px; /* Taille plus petite en mode tablette */
+  max-width: 100%; /* S'adapte à l'espace disponible */
+  margin-right: 10px; /* Espace entre l'input et le bouton */
+  transition: width 0.3s ease;
+}
+.search-form form button {
+  padding: 10px 15px;
+  background-color: #00497c;
+  color: #f1f8fc;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px; /* Adapte la taille minimale du bouton */
+  height: auto;
+}
+.search-form form button button .button-text {
+  display: inline-block; /* Affichage par défaut sur desktop */
+  font-size: 16px;
+}
+.search-form form button button .button-icon {
+  display: none; /* Masquer l'icône par défaut */
+  font-size: 20px;
+}
+.search-form form button:hover {
+  background-color: #0074c7; /* Couleur au survol du bouton */
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .navbar {
+    display: none; /* Cache le menu par défaut */
+  }
+  .logo img.logo-mobile {
+    display: block; /* Affiche le favicon */
+    max-height: 40px;
+  }
+  .menu-toggler {
+    display: block; /* Affiche le bouton hamburger */
+    z-index: 1001; /* Assure que le menu burger soit au-dessus des autres éléments */
+    margin-right: 10px;
+  }
+  .search-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Aligne l'input et le bouton verticalement */
+    margin-top: 10px; /* Espacement entre le logo et la barre de recherche */
+    width: 100%;
+  }
+  .search-form button {
+    min-width: 40px; /* Pour correspondre à la taille de l'icône */
+    height: 40px; /* Hauteur équivalente à l'icône */
+    padding: 5px; /* Ajuste l'espace autour de l'icône */
+  }
+  .search-form input {
+    width: 100%;
+    margin-bottom: 10px; /* Espace entre l'input et le bouton */
+  }
+  .search-form button .button-text {
+    display: none; /* Masquer le texte sur mobile et tablette */
+  }
+  .search-form button .button-icon {
+    display: inline-block; /* Afficher l'icône sur mobile et tablette */
+  }
+  .navbar.open {
+    display: flex !important; /* Affiche le menu quand ouvert */
+    flex-direction: column !important; /* Affiche les items en colonne */
+    position: absolute; /* Positionnement absolu pour ne pas perturber le layout */
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #00497c;
+    z-index: 1000; /* Pour que le menu soit au-dessus d'autres éléments */
+    margin-top: 80px;
+  }
+  .navbar-nav {
+    flex-direction: column; /* Menu vertical */
+    margin-top: 10px; /* Ajoute un peu d'espace entre les éléments du menu */
+  }
+  .nav-item {
+    margin: 10px 0; /* Espacement vertical dans le menu burger */
+  }
+}
+/* Styles pour les tablettes et petit écrans */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .logo img.logo-mobile {
+    display: none; /* Cacher le logo mobile sur tablette */
+  }
+  .logo img.logo-desktop {
+    display: block; /* Afficher le logo desktop sur tablette */
+  }
+  .search-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: auto;
+  }
+  .search-form button {
+    min-width: 40px; /* Pour correspondre à la taille de l'icône */
+    height: 40px; /* Hauteur équivalente à l'icône */
+    padding: 5px; /* Ajuste l'espace autour de l'icône */
+  }
+  .search-form input {
+    width: 200px;
+    margin-right: 10px;
+  }
+  .search-form button .button-text {
+    display: none; /* Masquer le texte sur mobile et tablette */
+  }
+  .search-form button .button-icon {
+    display: inline-block; /* Afficher l'icône sur mobile et tablette */
+  }
+  .navbar {
+    display: none;
+  }
+  .menu-toggler {
+    display: block; /* Affiche le bouton hamburger */
+    z-index: 1001;
+  }
+}
+/* Styles pour les grands écrans (desktop) */
+@media (min-width: 1025px) {
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  .logo img.logo-desktop {
+    display: block; /* Affiche le logo normal */
+  }
+  .logo img.logo-mobile {
+    display: none;
+  }
+  .search-form input {
+    width: 250px; /* Taille d'input standard pour desktop */
+  }
+  .menu-toggler {
+    display: none; /* Cache le menu burger sur desktop */
+  }
+  .search-form button {
+    min-width: 120px; /* Largeur plus grande pour le texte */
+    height: 40px;
+  }
+  .search-form button .button-text {
+    display: inline-block; /* Afficher le texte sur desktop */
+  }
+  .search-form button .button-icon {
+    display: none; /* Masquer l'icône sur desktop */
+  }
+}/*# sourceMappingURL=header.component.css.map */
