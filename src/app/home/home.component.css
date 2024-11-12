@@ -1,0 +1,147 @@
+@charset "UTF-8";
+.homepage {
+  margin-top: 20px;
+  width: 100%;
+  background-color: white;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 60px;
+  margin-bottom: 20px;
+}
+
+.steps {
+  background-color: #f1f8fc;
+  padding: 20px;
+  color: #00497c;
+  width: 100%;
+  margin: 40px auto;
+}
+.steps h1, .steps h2 {
+  text-align: center;
+  color: #0047c7;
+  margin-bottom: 60px;
+  padding: 10px;
+}
+@media (max-width: 768px) {
+  .steps {
+    padding-top: 80px;
+    width: 100%;
+  }
+}
+
+.steps-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  gap: 20px;
+}
+@media (max-width: 768px) {
+  .steps-content {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.steps-list {
+  flex: 1;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+@media (max-width: 768px) {
+  .steps-list {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}
+
+.step-item {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 15px;
+}
+.step-item a {
+  margin-right: 10px;
+}
+.step-item img {
+  margin-right: 10px;
+  max-width: 30px;
+  height: auto;
+}
+
+.steps-image {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+@media (max-width: 768px) {
+  .steps-image {
+    max-width: 100%;
+  }
+}
+
+.top-artisans {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  background-color: #f1f8fc;
+  width: 100%;
+}
+.top-artisans h1, .top-artisans h2 {
+  color: #0047c7;
+  text-align: center;
+  margin: 0;
+  padding-bottom: 30px;
+}
+.top-artisans hr {
+  background-color: #0047c7;
+}
+.top-artisans .artisan-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 0;
+  list-style-type: none;
+}
+.top-artisans .artisan-card {
+  border: 1px solid #f1f8fc;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 10px;
+  width: calc(33.33% - 20px); /* Trois cartes sur la ligne */
+  text-align: center;
+  box-shadow: 0 2px 5px #384050;
+  background-color: #f1f8fc;
+}
+@media (max-width: 768px) {
+  .top-artisans .artisan-card {
+    width: calc(50% - 20px); /* Deux cartes par ligne sur les petits écrans */
+  }
+}
+@media (max-width: 480px) {
+  .top-artisans .artisan-card {
+    width: calc(100% - 20px); /* Une carte par ligne sur les très petits écrans */
+  }
+}
+.top-artisans .artisan-list li div {
+  margin: 2px 0;
+}
+.top-artisans .artisan-list a {
+  color: #0047c7;
+}
+.top-artisans .artisan-list a:hover {
+  color: #384050;
+  text-decoration: underline;
+}/*# sourceMappingURL=home.component.css.map */

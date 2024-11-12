@@ -1,0 +1,50 @@
+@charset "UTF-8";
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 60px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  text-align: center;
+  color: #0047c7;
+  margin-bottom: 60px;
+  padding: 10px;
+}
+
+hr {
+  background-color: #0047c7;
+}
+
+.artisan-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Aligner à gauche */
+  margin-top: 20px; /* Espace au-dessus de la liste */
+  padding: 0; /* Retire le padding pour un meilleur alignement */
+  list-style-type: none;
+}
+
+.artisan-list a {
+  color: #0047c7;
+}
+
+.artisan-list a:hover {
+  color: #384050;
+  text-decoration: underline;
+}
+
+.artisan-card {
+  border: 1px solid #f1f8fc;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 10px;
+  width: 200px; /* Largeur des cartes */
+  text-align: center;
+  box-shadow: 0 2px 5px #384050;
+  background-color: #f1f8fc;
+  flex: 0 1 auto; /* Assure que les cartes gardent leur largeur */
+}/*# sourceMappingURL=services.component.css.map */
