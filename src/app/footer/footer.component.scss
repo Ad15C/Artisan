@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 .footer {
     background-color: #0074c7;
     color: #f1f8fc;
@@ -8,6 +14,12 @@
     padding: 20px; 
     font-size: small; 
     font-weight: normal;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+}
+
 
 .container-fluid {
     padding: 0;
@@ -15,13 +27,18 @@
 
  .content {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
     padding-bottom: 15px ;
+    text-align: justify;
+}
 
-    a {
-        margin-right: 20px;
-    }
- }
+.footer-img {
+    display: block;
+    margin-right: 30px; 
+    width: 30px; /* Limite la taille des images */
+    height: auto;
+}
 
  .adresse, .phone, .horaires {
     p {
@@ -41,7 +58,7 @@
         text-decoration: underline;
     }
  }
-}
+
 
 .networks {
     display: flex;
@@ -63,42 +80,93 @@ hr {
     height: 1px; /* Définit la hauteur de la ligne */
     background-color: #f1f8fc;
     margin: 10px 0;
+    width: 100%;
 }
 
-/* Media Queries */
+/* Mobile  */
 @media (max-width: 768px) {
     .footer {
-        padding: 10px; /* Réduire le padding sur mobile */
+        padding: 10px;
     }
 
     .content {
-        flex-direction: column; 
-        align-items: center; 
-        padding-bottom: 10px;
+        flex-direction: column; /* Les éléments s'affichent en colonne */
+        align-items: flex-start;     
+    }
+
+     .footer-img {
+        margin-bottom: 10px;
+        width: 50px; /* Un peu plus grand sur desktop */
     }
 
     .adresse, .phone, .horaires {
-        text-align: center; 
-        width: 100%; 
-        display: flex; 
-        flex-direction: column; 
-        align-items: center; 
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        text-align: justify;
     }
 
     .footer-link {
-        margin: 5px 0; /* Réduire les marges sur mobile */
+        margin: 5px ; /* Réduire les marges sur mobile */
         text-align: center; /* Centrer les liens */
+    }
+
+    .footer-img {
+        margin-bottom: 15px;
+        width: 30px;
+    }
+}
+
+/* Tablette */
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Footer padding pour tablette */
+    .footer {
+        padding: 15px;
+    }
+
+    /* .content : les éléments sont alignés en ligne avec un espacement égal */
+    .content {
+        flex-direction: row;
+        justify-content: space-around;
+        text-align: left;
+    }
+
+    .footer-img {
+        margin-bottom: 0;
+        width: 40px; /* Image légèrement plus grande sur tablette */
+    }
+
+    .adresse, .phone, .horaires {
+        text-align: left; /* Aligner le texte à gauche */
+        padding: 0 15px;
+        margin-bottom: 20px;
+    }
+
+    .footer-link {
+        margin: 5px;
+        text-align: center;
+    }
+
+    .networks img {
+        width: 25px; /* Taille moyenne sur tablette */
     }
 }
 
 
+/* Desktop */
 @media (min-width: 769px) {
     .content {
-        flex-direction: row;
-        justify-content: space-around; 
+        flex-direction: row; /* Les éléments s'affichent en ligne */
+        justify-content: space-between; /* Répartit les éléments également */
+        flex-wrap: no-wrap; /* Empêche l'enroulement des éléments */
     }
-    
+
+    .footer-img {
+        margin-bottom: 0;
+        width: 30px; /* Augmente la taille des images sur desktop */
+    }
+
     .footer-link {
-        margin: 10px; 
+        margin: 10px; /* Marge autour des liens */
     }
 }
