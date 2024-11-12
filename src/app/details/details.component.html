@@ -62,18 +62,18 @@
                 <div *ngIf="confirmationMessage" class="alert alert-success" role="alert">
                   {{ confirmationMessage }}
                 </div>
-                <form [formGroup]="contactForm" (ngSubmit)="sendEmail()">
+                <form [formGroup]="contactForm" (ngSubmit)="sendEmail()" id="formulaire">
                   <div class="mb-3">
-                    <input type="text" class="form-control" id="name" name="name" formControlName="name" placeholder="Nom" required>
+                    <input type="text" class="form-control" id="name" name="name" formControlName="name" placeholder="Nom" autocomplete="name"required>
                   </div>
                   <div class="mb-3">
-                    <input type="text" class="form-control" id="firstName" name="firstName" formControlName="firstName" placeholder="Prénom" required>
+                    <input type="text" class="form-control" id="firstName" name="firstName" formControlName="firstName" placeholder="Prénom" autocomplete="given-name" required>
                   </div>
                   <div class="mb-3">
-                    <input type="text" class="form-control" id="object" name="object" formControlName="object" placeholder="Objet de votre demande" required>
+                    <input type="text" class="form-control" id="object" name="object" formControlName="object" placeholder="Objet de votre demande" autocomplete="off" required>
                   </div>
                   <div class="mb-3">
-                    <textarea class="form-control" id="message" name="message"  formControlName="message" rows="3" placeholder="Message" required></textarea>
+                    <textarea class="form-control" id="message" name="message"  formControlName="message" rows="3" placeholder="Message" autocomplete="off" required></textarea>
                   </div>
                   <div class="col-auto text-center"> 
                     <button type="submit" class="btn btn-primary mb-3">Envoyer votre demande</button>
