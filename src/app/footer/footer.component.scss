@@ -28,13 +28,13 @@
  .content {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     justify-content: space-between;
     padding-bottom: 15px ;
     text-align: justify;
 }
 
 .footer-img {
-    display: block;
     margin-right: 30px; 
     width: 30px; /* Limite la taille des images */
     height: auto;
