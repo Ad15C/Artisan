@@ -7,15 +7,15 @@
           <ul class="detail-line">
             <li class="detail-item">
               <img src="assets/favicons/specialite-bleu.png" alt="Favicon représentant le métier"/>
-                  <p><strong>Spécialité:</strong> {{ details?.specialty }} </p>
+                  <p><strong><u>Spécialité:</u></strong> {{ details?.specialty }} </p>
             </li>
             <li class="detail-item">
               <img src="assets/favicons/endroit.png" alt="favicon de l'adresse">
-                <p><strong>Localisation:</strong> {{ details?.location }} </p>
+                <p><strong><u>Localisation:</u></strong> {{ details?.location }} </p>
             </li>
             <li class="detail-item">
               <img src="assets/favicons/note.png" alt="favicon de l'étoile pour la note">
-                <p><strong>Note:</strong> {{ details?.note }} sur 5</p>
+                <p><strong><u>Note:</u></strong> {{ details?.note }} sur 5</p>
             </li>
           </ul>
         </div>
@@ -64,16 +64,16 @@
                 </div>
                 <form [formGroup]="contactForm" (ngSubmit)="sendEmail()">
                   <div class="mb-3">
-                    <input type="text" class="form-control" formControlName="name" placeholder="Nom" required>
+                    <input type="text" class="form-control" id="name" name="name" formControlName="name" placeholder="Nom" required>
                   </div>
                   <div class="mb-3">
-                    <input type="text" class="form-control" formControlName="firstName" placeholder="Prénom" required>
+                    <input type="text" class="form-control" id="firstName" name="firstName" formControlName="firstName" placeholder="Prénom" required>
                   </div>
                   <div class="mb-3">
-                    <input type="text" class="form-control" formControlName="object" placeholder="Objet de votre demande" required>
+                    <input type="text" class="form-control" id="object" name="object" formControlName="object" placeholder="Objet de votre demande" required>
                   </div>
                   <div class="mb-3">
-                    <textarea class="form-control" formControlName="message" rows="3" placeholder="Message" required></textarea>
+                    <textarea class="form-control" id="message" name="message"  formControlName="message" rows="3" placeholder="Message" required></textarea>
                   </div>
                   <div class="col-auto text-center"> 
                     <button type="submit" class="btn btn-primary mb-3">Envoyer votre demande</button>
