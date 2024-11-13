@@ -28,6 +28,7 @@ export class DetailsComponent implements OnInit{
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
       firstName: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       object: ['', Validators.required],
       message: ['', Validators.required]
     });
@@ -51,7 +52,7 @@ export class DetailsComponent implements OnInit{
       this.confirmationMessage = 'Veuillez remplir tous les champs obligatoires.';
       return; /* Arrêtez l'exécution si le formulaire est invalide */
     }
-    const { name, firstName, object, message } = this.contactForm.value;
+    const { name, firstName, email,  object, message } = this.contactForm.value;
     
     emailjs.send(
       environment.emailjsServiceId,
@@ -59,6 +60,7 @@ export class DetailsComponent implements OnInit{
       {
         name,
         firstName,
+        email,
         object,
         message,
       },

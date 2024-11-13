@@ -33,6 +33,11 @@ main {
   text-align: center !important;
   margin-bottom: 20px;
   white-space: nowrap; /* Assurez-vous que le titre reste sur une seule ligne */
+  color: #0074c7;
+}
+
+.artisan-name:hover {
+  color:#00497c; /* Changer la couleur lors du survol */
 }
 
 .title {
@@ -62,9 +67,9 @@ main {
   }
 
   p {
-    margin: 15px ; 
-    }
+    margin: 15px ;
   }
+}
   
 
 .accordion {
@@ -75,6 +80,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: #f1f8fc;
 }
 
 .accordion-item {
@@ -106,7 +112,7 @@ main {
 }
 
 .accordion-collapse {
-  transition: max-height 0.4s ease;
+  transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out ;
 }
 
 .accordion-body {

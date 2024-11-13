@@ -26,7 +26,7 @@
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingOne">
               A Propos
-              <button class="accordion-button" type="button" (click)="toggleAccordion(1)" [ngClass]="{'collapsed': activeAccordion !== 1}">
+              <button class="accordion-button" aria-label="Ouvrir l'accordéon A Propos"  type="button" (click)="toggleAccordion(1)" [ngClass]="{'collapsed': activeAccordion !== 1}">
                 <img src="assets/favicons/ouvrir.png" alt="Favicon ouvertur du menu accordéon">
               </button>
             </h2>
@@ -36,9 +36,11 @@
               </div>
             </div>
           </div>
+
           <div class="accordion-item">
-            <h2 class="accordion-header" id="headingTwo">  Nos Informations
-              <button class="accordion-button" type="button" (click)="toggleAccordion(2)" [ngClass]="{'collapsed': activeAccordion !== 2}">
+            <h2 class="accordion-header" id="headingTwo">  
+              Nos Informations
+              <button class="accordion-button" aria-label="Ouvrir l'accordéon Nos Informations"  type="button" (click)="toggleAccordion(2)" [ngClass]="{'collapsed': activeAccordion !== 2}">
                 <img src="assets/favicons/ouvrir.png" alt="Favicon ouvertur du menu accordéon">
               </button>
             </h2>
@@ -51,23 +53,30 @@
               </div>
             </div>
           </div>
+
           <div class="accordion-item">
-            <h2 class="accordion-header" id="headingThree"> Formulaire De Contact
-              <button class="accordion-button" type="button" (click)="toggleAccordion(3)" [ngClass]="{'collapsed': activeAccordion !== 3}">
+            <h2 class="accordion-header" id="headingThree"> 
+              Formulaire De Contact
+              <button class="accordion-button" aria-label="Ouvrir l'accordéon Formulaire de Contact"  type="button" (click)="toggleAccordion(3)" [ngClass]="{'collapsed': activeAccordion !== 3}">
                 <img src="assets/favicons/ouvrir.png" alt="Favicon ouvertur du menu accordéon">
               </button>
             </h2>
+
             <div class="accordion-collapse collapse" [class.show]="activeAccordion === 3" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
               <div class="accordion-body">
-                <div *ngIf="confirmationMessage" class="alert alert-success" role="alert">
+                <div *ngIf="confirmationMessage" class="alert alert-success" role="alert" aria-live="assertive">
                   {{ confirmationMessage }}
                 </div>
+
                 <form [formGroup]="contactForm" (ngSubmit)="sendEmail()" id="formulaire">
                   <div class="mb-3">
                     <input type="text" class="form-control" id="name" name="name" formControlName="name" placeholder="Nom" autocomplete="name"required>
                   </div>
                   <div class="mb-3">
                     <input type="text" class="form-control" id="firstName" name="firstName" formControlName="firstName" placeholder="Prénom" autocomplete="given-name" required>
+                  </div>
+                  <div class="mb-3">
+                    <input type="email" class="form-control" id="email" name="email" formControlName="email" placeholder="Votre Email" autocomplete="email" required>
                   </div>
                   <div class="mb-3">
                     <input type="text" class="form-control" id="object" name="object" formControlName="object" placeholder="Objet de votre demande" autocomplete="off" required>
