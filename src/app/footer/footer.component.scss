@@ -158,7 +158,7 @@ hr {
     .content {
         flex-direction: row; /* Les éléments s'affichent en ligne */
         justify-content: space-between; /* Répartit les éléments également */
-        flex-wrap: no-wrap; /* Empêche l'enroulement des éléments */
+        flex-wrap: nowrap; /* Empêche l'enroulement des éléments */
     }
 
     .footer-img {
