@@ -25,7 +25,7 @@ export class AlimentationComponent implements OnInit  {
   }
 
   /* Méthode pour mettre à jour la note de l'artisan */
-  updateNote(artisanId: number, newNote: number): Observable<Artisan> {
+  updateNote(artisanId: number, newNote: number) {
   const artisan = this.artisans.find(a => a.id === artisanId);
   
     if (artisan) {
