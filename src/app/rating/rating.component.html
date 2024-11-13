@@ -1,0 +1,10 @@
+  <div class="rating">
+    <span *ngFor="let star of stars; let i = index" 
+          [ngClass]="{
+            'full': i < fullStars,
+            'half': i === halfStar,
+            'empty': i >= (fullStars + halfStar)
+          }">
+          &#9733; <!-- Symbole de l'étoile -->
+    </span>
+  </div>

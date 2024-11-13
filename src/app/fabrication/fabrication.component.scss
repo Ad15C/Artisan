@@ -15,26 +15,33 @@ h2 {
 }
 
 hr {
-    background-color: #0047c7;
+    border: 0;
+    border-top: 1px solid #0074c7;  
+    margin: 10px 0;  
+    width: 100%; 
 }
 
 .artisan-list {
     display: flex;               
     flex-wrap: wrap;            
     justify-content: flex-start; /* Aligner à gauche */
-    margin-top: 20px;          /* Espace au-dessus de la liste */
-    padding: 0;                /* Retire le padding pour un meilleur alignement */
+    margin-top: 20px; /* Espace au-dessus de la liste */
+    padding: 0; /* Retire le padding pour un meilleur alignement */
     list-style-type: none; 
+    gap: 20px; /* espace entre les cartes*/
 }
 
 
 .artisan-list a {
     color: #0047c7;
+    transition: color 0.3s ease, letter-spacing 0.3s ease;
+    animation: fadeIn 1s forwards;
 }
 
 .artisan-list a:hover {
     color: #384050;
-    text-decoration:underline;
+    text-decoration: underline;
+    letter-spacing: 1px;
 }
 
 .artisan-card {
@@ -47,4 +54,61 @@ hr {
     box-shadow: 0 2px 5px #384050;
     background-color: #f1f8fc;
     flex: 0 1 auto; /* Assure que les cartes gardent leur largeur */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrer le contenu à l'intérieur de la carte */
+    justify-content: space-between; /* Espacer correctement les éléments */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
+
+.artisan-card:hover {
+    transform: translateY(-10px);  /* Légère élévation */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    background-color: #0074c736; /* Changement de couleur au survol */
+}
+
+.artisan-card img {
+    max-width: 100%;
+    border-radius: 8px;
+    height: 32px; /* Hauteur fixe pour l'image */
+    object-fit: cover; /* Assure que l'image garde son ratio sans déformation */
+}
+
+@media (max-width: 768px) {
+    .artisan-list {
+        justify-content: center; /* Centrer les cartes sur petit écran */
+        flex-direction: row; /* S'assurer que les cartes restent en ligne même sur mobile */
+    }
+
+    .artisan-card {
+        width: 150px; /* Réduire la largeur des cartes sur mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 0 10px; /* Moins de padding pour les petits écrans */
+    }
+
+    .artisan-list {
+        flex-direction: column; /* Affichage en colonne pour les petits écrans */
+        align-items: center; /* Centrer les éléments */
+    }
+
+    .artisan-card {
+        width: 100%; /* Occupation de toute la largeur sur mobile */
+        margin-bottom: 20px; /* Espace entre les cartes */
+    }
+}
+
+@media (min-width: 1024px) {
+    .artisan-list {
+        justify-content: space-evenly /* Aligner les cartes à gauche sur desktop */
+    }
+
+    .artisan-card {
+        width: 220px; /* Augmenter la taille des cartes sur desktop */
+        margin: 20px;
+    }
+}
+

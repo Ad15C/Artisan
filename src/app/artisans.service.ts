@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Artisan } from './artisan.model';
+import { Observable, of } from 'rxjs';
 
 export enum Category {
     Batiment = "Bâtiment",
@@ -229,6 +230,7 @@ private categoryImages: { [key in Category]: string } = {
 private categoryNames: string[] = Object.values(Category);
 
 constructor () {}
+
 /* Retourne la liste des artisans avec les images associées */
 getArtisans(): (Artisan & { image: string })[] {
 	return this.artisans.map(artisan => {
@@ -239,6 +241,7 @@ getArtisans(): (Artisan & { image: string })[] {
 		};
 	});
 }
+
 /* Retourne les trois artisans ayant la meilleure note et étant notés comme top*/
 getTop3Artisans(): Artisan[] {
 	return this.artisans
@@ -250,15 +253,30 @@ getTop3Artisans(): Artisan[] {
             return { ...artisan, image }; /* Ajoute l'image à l'artisan */
         });
 }
+
 /* Retourne les noms des catégories */
 getCategoryNames(): string[] {
 	return this.categoryNames;
 }
+
 /* Retourne un artisan en fonction de son nom */
 getArtisanByName(name: string | undefined): Artisan | undefined {
 	/* Vérification que le nom est défini */
 	if (!name) return undefined; 
 	return this.artisans.find(artisan => artisan.name.toLowerCase().replace(/\s+/g, '-') === name);
   }
-  
+
+ /* Méthode pour mettre à jour la note de l'artisan */
+ updateNote(artisanId: number, newNote: number): Observable<Artisan> {
+    const artisan = this.artisans.find(a => a.id === artisanId);
+    
+    if (artisan) {
+      artisan.note = newNote;  /* Mise à jour de la note */
+      return of(artisan);  /* Retourne l'artisan mis à jour dans un Observable */
+    } else {
+      throw new Error('Artisan non trouvé');
+    }
+  }
 }
+
+  

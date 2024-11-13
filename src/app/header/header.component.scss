@@ -65,6 +65,7 @@
         &:hover {
             background-color: #0074c7; /* Couleur de fond au survol */
             border-radius: 5px; 
+            transform: scale(1.05); /* Zoom sur le lien du menu */
         }
 
          /* Effet de zoom sur clic */
@@ -170,6 +171,15 @@
 
 /* Mobile */
 @media (max-width: 768px) {
+    .steps-list {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .artisan-card {
+        width: 100%; /* Carte pleine largeur sur petits écrans */
+    }
+
     .navbar {
         display: none; /* Cache le menu par défaut */
     }
