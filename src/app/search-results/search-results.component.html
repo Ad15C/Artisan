@@ -10,7 +10,7 @@
                 <hr>
                 <div><u>Spécialité:</u> {{ artisan.specialty }}</div>
                 <div><u>Localisation:</u> {{ artisan.location }}</div>
-                <div><u>Note:</u> {{ artisan.note }}/5</div>
+                <app-rating [(note)]="artisan.note" (noteChange)="updateNote(artisan.id, $event)"></app-rating>
             </li>
         </ul>
     </div>

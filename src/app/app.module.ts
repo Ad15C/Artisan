@@ -17,6 +17,7 @@ import { ServicesComponent } from './services/services.component';
 import { FabricationComponent } from './fabrication/fabrication.component';
 import { AlimentationComponent } from './alimentation/alimentation.component';
 import { DetailsComponent } from './details/details.component';
+import { RatingComponent } from './rating/rating.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { DetailsComponent } from './details/details.component';
     FabricationComponent,
     AlimentationComponent,
     DetailsComponent,
+    RatingComponent,
 
   ],
   imports: [

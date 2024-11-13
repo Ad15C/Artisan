@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+html {
+    scroll-behavior: smooth;
+}
+
 @font-face { 
     font-family: 'Graphik';
     src: url('assets/fonts/Graphik-Thin-Trial.woff2') format('woff2'),

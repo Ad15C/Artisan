@@ -1,0 +1,18 @@
+.rating {
+    display: flex;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  
+  .rating .full {
+    color: #0074c7;
+  }
+  
+  .rating .half {
+    color: #0074c7c7;
+   }
+  
+  .rating .empty {
+    color: #00497c;
+  }
+  
