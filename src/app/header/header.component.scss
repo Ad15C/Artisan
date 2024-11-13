@@ -29,6 +29,7 @@
     flex-grow: 1;
     justify-content: center; /* Centre le menu horizontalement */
     position: relative;
+    border-radius: 20px;
 
     &.open {
         display: flex; 
@@ -52,18 +53,24 @@
 
 .nav-item {
     margin: 0 25px; /* Espace entre les sections */
+    border-radius: 20px;
 
     .link {
         color: #f1f8fc; /* Couleur des liens */
         text-decoration: none; 
         display: block; 
         padding: 10px; 
-        transition: background-color 0.3s;
+        transition: background-color 0.3s, transform 0.3s ease; /* Ajout du transform */
 
         &:hover {
             background-color: #0074c7; /* Couleur de fond au survol */
             border-radius: 5px; 
         }
+
+         /* Effet de zoom sur clic */
+         &:active {
+            transform: scale(1.1); /* Agrandissement du lien */
+        }      
     }
 }
 
@@ -74,6 +81,7 @@
     background-color: #0074c7; /* Couleur des traits */
     display: block;
     position: relative;
+    transition: transform 0.3s ease; /* Ajout d'une transition pour le zoom */
 
     &:before,
     &:after {
@@ -98,8 +106,11 @@
 .search-form {
     display: flex;
     align-items: center; 
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    
 
     form {
         display: flex;
@@ -107,26 +118,36 @@
         align-items: center;
         width: auto; 
         margin-left: 30px; 
+        background-color: #f1f8fc;
+        border-radius: 25px;
+        padding: 5px 20px;
         
         input {
             width: 200px; /* Taille plus petite en mode tablette */
             max-width: 100%; /* S'adapte à l'espace disponible */
             margin-right: 10px; /* Espace entre l'input et le bouton */
             transition: width 0.3s ease;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: 2px solid #0074c7; /* Bordure bleue discrète */
+            border-radius: 20px;
+            transition: all 0.3s ease-in-out; /* Animation fluide */
         }
 
         button {
-            padding: 10px 15px;
             background-color: #00497c;
+            border-color:#0074c7;
             color: #f1f8fc;
             border: none;
-            border-radius: 5px;
+            border-radius: 20px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-width: 40px;  /* Adapte la taille minimale du bouton */
-            height: auto;
+            padding: 10px 20px;
+            transition: background-color 0.3s, transform 0.2s ease;
+            min-width: 50px;
+            height: 50px;
 
             button .button-text {
                 display: inline-block; /* Affichage par défaut sur desktop */
@@ -136,10 +157,12 @@
             button .button-icon {
                 display: none; /* Masquer l'icône par défaut */
                 font-size: 20px;
+                transition: transform 0.3s ease;
             }
             
             &:hover {
                 background-color: #0074c7; /* Couleur au survol du bouton */
+                transform: scale(1.05); /* Effet de zoom */
             }
         }
     }
@@ -187,6 +210,12 @@
 
     .search-form button .button-icon {
         display: inline-block; /* Afficher l'icône sur mobile et tablette */
+    }
+
+    /* Ajout de l'effet au clic sur mobile */
+    .search-form button:active {
+        background-color: #0074c7; /* Couleur du bouton lors du clic */
+        transform: scale(1.05); /* Effet de zoom lors du clic */
     }
 
     .navbar.open {
@@ -252,6 +281,15 @@
 
     .search-form button .button-icon {
         display: inline-block; /* Afficher l'icône sur mobile et tablette */
+    }
+
+    .search-form button:active .button-icon {
+        transform: rotate(360deg); /* Rotation de l'icône lors du clic */
+    }
+    
+    .search-form button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
     }
 
     .navbar {
