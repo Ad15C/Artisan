@@ -17,6 +17,7 @@ export class HeaderComponent {
 
   @Output() searchChanged = new EventEmitter<{ term: string, type: string }>();
 
+
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object, 
     private router: Router,
