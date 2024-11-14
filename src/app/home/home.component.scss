@@ -4,21 +4,15 @@
     background-color: white;
 }
 
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin-top: 60px;
-    margin-bottom: 20px;
-}
+
 
 .steps {
     background-color: #f1f8fc;
     padding: 20px;
     color: #00497c;
     width: 100%;
-    margin: 40px auto;
+  margin-top: 100px;
+  margin-bottom: 60px;
     border-radius: 8px; /* Ajout d'un rayon de bord pour un aspect plus moderne */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
 
@@ -27,11 +21,6 @@ main {
         color: #0047c7;
         margin-bottom: 60px;
         padding: 10px;
-    }
-
-    @media (max-width: 768px) {
-        padding-top: 80px;
-        width: 100%;
     }
 }
 
@@ -43,11 +32,6 @@ main {
     width: 100%;
     gap: 10px;  
     margin-bottom: 20px;
-
-    @media (max-width: 768px) {
-        flex-direction: column;
-        align-items: center; 
-    }
 }
 
 .steps-list {
@@ -57,11 +41,6 @@ main {
     flex-direction: column;
     gap: 10px; 
     transition: transform 0.3s ease; 
-
-    @media (max-width: 768px) {
-        margin-right: 0;
-        margin-bottom: 20px;
-    }
 }
 
 .step-item {
@@ -171,24 +150,47 @@ main {
         object-fit: cover; /* Assure que l'image garde son ratio sans déformation */
     }
 
-        @media (max-width: 768px) {
-            width: calc(50% - 20px); /* Deux cartes par ligne sur les petits écrans */
-        }
+     
 
-        @media (max-width: 480px) {
-            width: calc(100% - 20px); /* Une carte par ligne sur les très petits écrans */
-        }
+    }
+   
+     
+@media (min-width: 1024px) {
+    .artisan-list {
+        justify-content: space-evenly /* Aligner les cartes à gauche sur desktop */
     }
     
-    @media (min-width: 1024px) {
-        .artisan-list {
-            justify-content: space-evenly /* Aligner les cartes à gauche sur desktop */
-        }
-    
-        .artisan-card {
-            width: 220px; /* Augmenter la taille des cartes sur desktop */
-            margin: 20px;
-        }
+    .artisan-card {
+        width: 220px; /* Augmenter la taille des cartes sur desktop */
+        margin: 20px;
     }
+}
+
+@media (max-width: 768px) {
+    .steps {
+        padding-top: 80px;
+        width: 100%;
+    }
+    
+    .steps-content{
+        flex-direction: column;
+        align-items: center; 
+    }
+        
+    .steps-list {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+        
+    .artisan-card{
+        width: calc(50% - 20px); /* Deux cartes par ligne sur les petits écrans */
+    }
+}
+     
+@media (max-width: 480px) {
+    .artisan-card {
+        width: calc(100% - 20px); /* Une carte par ligne sur les très petits écrans */
+    }
+}
 
    
