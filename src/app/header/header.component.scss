@@ -171,6 +171,25 @@
 
 /* Mobile */
 @media (max-width: 768px) {
+    .container {
+        display: flex; 
+        flex-direction: row; 
+        justify-content: space-between; 
+        align-items: center; 
+        padding: 10px;
+        width: 100%;
+    }
+
+    .logo {
+        display: flex;
+        align-items:flex-start;
+        justify-content: flex-start;
+    }
+
+    .navbar {
+        display: none; /* Cache le menu en mode mobile par défaut */
+    }
+
     .steps-list {
         margin-right: 0;
         margin-bottom: 20px;
@@ -180,38 +199,53 @@
         width: 100%; /* Carte pleine largeur sur petits écrans */
     }
 
-    .navbar {
-        display: none; /* Cache le menu par défaut */
-    }
-
     .logo img.logo-mobile {
         display: block; /* Affiche le favicon */
         max-height: 40px; 
+        margin: 0;
     }
 
     .menu-toggler {
         display: block; /* Affiche le bouton hamburger */
         z-index: 1001; /* Assure que le menu burger soit au-dessus des autres éléments */
-        margin-right: 10px;       
+        position: absolute; /* Position absolue pour l'ancrer dans le coin */
+        top: 10px; /* Ajuster la position verticale */
+        right: 10px; /* Déplace le bouton vers la droite */
+        margin-right: 0; /* Supprime toute marge à droite */  
     }
 
     .search-form {
         display: flex; 
         flex-direction: row; 
-        align-items: center; /* Aligne l'input et le bouton verticalement */
-        margin-top: 10px; /* Espacement entre le logo et la barre de recherche */
-        width: 100%;
+        align-items: center;
+        margin-top: 35px; /* Espacement entre le menu et barre de recherche */
+        justify-content: flex-end; /* Aligne les éléments à droite */
+        width: 60%;
+        padding: 5px;
+
     }
 
     .search-form button {
-        min-width: 40px;  /* Pour correspondre à la taille de l'icône */
-        height: 40px; /* Hauteur équivalente à l'icône */
-        padding: 5px;  /* Ajuste l'espace autour de l'icône */
+        min-width: 40px;
+        height: 40px;
+        padding: 5px;
+        background-color: #00497c;
+        border: none;
+        color: #f1f8fc;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s, transform 0.2s ease;
     }
 
     .search-form input {
-        width: 100%; 
-        margin-bottom: 10px; /* Espace entre l'input et le bouton */
+        width: 80%; /* L'input prend 80% de la largeur */
+        margin-right: px; /* Espacement entre l'input et le bouton */
+        padding: 10px 15px;
+        font-size: 16px;
+        border-radius: 20px;
+        border: 2px solid #00497c; /* Bordure bleue */
     }
 
     .search-form button .button-text {
@@ -307,8 +341,11 @@
     }
 
     .menu-toggler {
-        display: block; /* Affiche le bouton hamburger */
-        z-index: 1001;
+        display: block; /* Affiche le bouton hamburger sur les tablettes */
+        z-index: 1001; /* Assure que le menu burger soit au-dessus des autres éléments */
+        position: absolute; /* Position absolue pour l'ancrer dans le coin */
+        top: 10px; /* Ajuste la position verticale */
+        right: 10px; /* Déplace le bouton vers la droite */
     }
 }
 
