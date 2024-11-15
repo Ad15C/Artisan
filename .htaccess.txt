@@ -1,7 +1,0 @@
-# Redirection pour Angular
-
-RewriteEngine On
-RewriteBase /
-
-# Rediriger toutes les requêtes vers index.html
-RewriteRule ^ index.html [QSA,L]
